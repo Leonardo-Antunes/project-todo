@@ -3,7 +3,7 @@ import { Card } from "..";
 
 const SecaoDeTarefas = () => {
   return (
-    <Card></Card>
+    <Card title="a" description="b" tag="c"></Card>
   );
 };
 
