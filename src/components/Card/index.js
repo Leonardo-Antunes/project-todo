@@ -1,13 +1,13 @@
 import React from "react";
+import { CardTitle, Wrapper, CardDescription, CardTag } from "./style";
 
-const Card = ({title, description, tag}) => {
-
+const Card = ({ title, description, tag, onItemClicked }) => {
   return (
-    <div>
-      <h1>{title}</h1>
-      <h2>{description}</h2>
-      <h3>{tag}</h3>
-    </div>
+    <Wrapper role="button" onClick={onItemClicked}>
+      <CardTitle> {title} </CardTitle>
+      <CardDescription> {description} </CardDescription>
+      <CardTag> {tag} </CardTag>
+    </Wrapper>
   );
 };
 

@@ -1,10 +1,12 @@
-import FormTodo from "./components/FormTodo";
+import React from "react";
+import { Card, SecaoDeTarefas } from "./components";
 
 function App() {
   return (
-    <div className="App">
-     <FormTodo />
-    </div>
+    <>
+      <SecaoDeTarefas>
+      </SecaoDeTarefas>
+    </>
   );
 }
 
