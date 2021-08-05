@@ -1,9 +1,13 @@
+import React from "react";
+import { Card, SecaoDeTarefas } from "./components";
 
 function App() {
   return (
-    <div className="App">
-     Desenvolvimento
-    </div>
+    <>
+      <SecaoDeTarefas>
+        <Card></Card>
+      </SecaoDeTarefas>
+    </>
   );
 }
 
