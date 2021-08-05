@@ -21,7 +21,7 @@ const SecaoDeTarefas = () => {
 
   return (
     <div>
-      {itens.map((item, index) => {
+      {/* {itens.map((item, index) => {
         if (item) {
           return (
             <Card
@@ -35,7 +35,7 @@ const SecaoDeTarefas = () => {
           );
         }
         return null;
-      })}
+      })} */}
     </div>
   );
 };

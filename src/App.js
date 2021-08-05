@@ -1,11 +1,11 @@
 import React from "react";
-import { Card, SecaoDeTarefas } from "./components";
+import { SecaoDeTarefas, FormTodo } from "./components";
 
 function App() {
   return (
     <>
-      <SecaoDeTarefas>
-      </SecaoDeTarefas>
+      <FormTodo />
+      <SecaoDeTarefas />
     </>
   );
 }
