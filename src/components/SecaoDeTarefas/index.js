@@ -2,11 +2,15 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import inputActions from "../../redux/actions/inputActions";
 import { Card } from "..";
-import {} from "./style";
+
 
 const SecaoDeTarefas = () => {
   const dispatch = useDispatch();
-  const itens = useSelector((state) => state);
+  const title = useSelector(state => state.inputs.title);
+  const description = useSelector(state => state.inputs.description);
+
+  const itens = useSelector(state => state.todos.todos)
+  console.log(itens)
 
   const onItemClicked = (item, index) => {
     dispatch(inputActions.setInputId(index));
@@ -21,13 +25,14 @@ const SecaoDeTarefas = () => {
 
   return (
     <div>
-      {/* {itens.map((item, index) => {
+      {itens.map((item, index) => {
+        
         if (item) {
           return (
             <Card
               title={item.title}
               description={item.description}
-              tag={item.tag}
+              // tag={item.todos.tag}
               onItemClicked={() => {
                 onItemClicked(item, index);
               }}
@@ -35,7 +40,7 @@ const SecaoDeTarefas = () => {
           );
         }
         return null;
-      })} */}
+      })}
     </div>
   );
 };

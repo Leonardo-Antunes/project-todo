@@ -27,7 +27,7 @@ export default function FormTodo() {
 
   const title = useSelector((state) => state.inputs.title);
   const description = useSelector((state) => state.inputs.description);
-  const tags = useSelector((state) => state.inputs.tag);
+  // const tags = useSelector((state) => state.inputs.tag);
 
   const handleTitleChange = (e) => {
     dispatch(inputActions.setInputTitle(e.target.value));
@@ -42,12 +42,12 @@ export default function FormTodo() {
 
   const addItem = (e) => {
     e.preventDefault();
-    if (title && description && tags) {
+    if (title && description) {
       dispatch(
         todoActions.addItem({
           title,
           description,
-          tags,
+          //tags,
         })
       );
       dispatch(inputActions.resetInput());
@@ -76,7 +76,7 @@ export default function FormTodo() {
         variant="outlined"
         size="small"
       />
-      <FormControl variant="outlined">
+      {/* <FormControl variant="outlined">
         <InputLabel id="demo-simple-select-outlined-label">Tag</InputLabel>
         <Select
           labelId="tagSelector"
@@ -92,7 +92,7 @@ export default function FormTodo() {
             </MenuItem>
           ))}
         </Select>
-      </FormControl>
+      </FormControl> */}
       <button type="submit">Adicionar tarefa</button>
     </form>
   );

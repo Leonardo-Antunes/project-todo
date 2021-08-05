@@ -17,8 +17,8 @@ export default {
   resetInput: () => ({
     type: actionTypes.RESET_INPUT,
   }),
-  setItemTag: (tag) => ({
-    type: actionTypes.SET_ITEM_TAG,
-    tag,
-  }),
+  // setItemTag: (tag) => ({
+  //   type: actionTypes.SET_ITEM_TAG,
+  //   tag,
+  // }),
 }
