@@ -5,7 +5,21 @@ const initialState = {
   id: -1,
   title: "",
   description: "",
-  tag: "todo"
+  tag: [
+    {
+      tagName: 'todo',
+      tagColor: '#f3722c'
+    },
+    {
+      tagName: 'lazer',
+      tagColor: '#4d908e'
+    },
+    {
+      tagName: 'livros',
+      tagColor: '#f9844a'
+    },
+
+  ]
 }
 
 export default (state = initialState, action) => {
