@@ -1,8 +1,9 @@
+import FormTodo from "./components/FormTodo";
 
 function App() {
   return (
     <div className="App">
-     Desenvolvimento
+     <FormTodo />
     </div>
   );
 }
