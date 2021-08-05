@@ -1,14 +1,13 @@
 import React from "react";
+import { Wrapper } from "./style";
 
-const Card = ({title, description, tag}) => {
 
-  return (
-    <div>
-      <h1>{title}</h1>
-      <h2>{description}</h2>
-      <h3>{tag}</h3>
-    </div>
-  );
+const Card = () => {
+  return(
+  <Wrapper>
+    
+  </Wrapper>
+  )
 };
 
 export default Card;

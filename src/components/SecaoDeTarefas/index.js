@@ -1,9 +1,10 @@
-import React from "react"
+import React from "react";
+import { Card } from "..";
 
 const SecaoDeTarefas = () => {
-    return (
-        <h1>first test</h1>
-    )
-}
+  return (
+    <Card></Card>
+  );
+};
 
 export default SecaoDeTarefas;
