@@ -2,9 +2,9 @@
 import actionTypes from "../actionTypes";
 
 const initialState = {
-  id: 0,
-  title: "lavar a louça",
-  description: "pega",
+  id: -1,
+  title: "",
+  description: "",
   // tag: [
   //   {
   //     tagName: 'todo',
