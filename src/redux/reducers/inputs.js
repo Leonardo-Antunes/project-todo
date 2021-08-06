@@ -2,9 +2,9 @@
 import actionTypes from "../actionTypes";
 
 const initialState = {
-  id: 0,
-  title: "lavar a louça",
-  description: "pega",
+  id: -1,
+  title: "",
+  description: "",
   // tag: [
   //   {
   //     tagName: 'todo',
@@ -43,6 +43,14 @@ export default (state = initialState, action) => {
       return {
         ...state,
         description,
+      }
+    }
+    
+    case actionTypes.SET_TODO_CHECKED: {
+      const { isChecked } = action;
+      return {
+        ...state,
+        isChecked,
       }
     }
     // case actionTypes.SET_ITEM_TAG: {
