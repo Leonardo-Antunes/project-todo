@@ -14,8 +14,8 @@ export default function FormTodo() {
   const dispatch = useDispatch();
 
   const id = useSelector(state => state.inputs.id)
-  const title = useSelector((state) => state.inputs.title);
-  const description = useSelector((state) => state.inputs.description);
+  const title = useSelector(state => state.inputs.title);
+  const description = useSelector(state => state.inputs.description);
   // const tags = useSelector((state) => state.inputs.tag);
 
   const handleTitleChange = (e) => {
@@ -45,12 +45,16 @@ export default function FormTodo() {
 
   const updateItem = () => {
 
-    if (title && description) {
-      dispatch(todoActions.updateItem(id, {
-        title, description
-      }))
-      dispatch(inputActions.resetInput())
-    }
+    dispatch(todoActions.updateItem(id, {
+      title, description
+    }))
+    dispatch(inputActions.resetInput())
+
+  }
+
+  const deleteItem = () => {
+    dispatch(todoActions.deleteItem(id))
+    dispatch(inputActions.resetInput())
   }
 
   return (
@@ -97,7 +101,7 @@ export default function FormTodo() {
         :
         (<>
           <ButtonBase onClick={updateItem} type="button">Update</ButtonBase>
-          <ButtonBase type="button">Delete</ButtonBase>
+          <ButtonBase onClick={deleteItem} type="button">Delete</ButtonBase>
         </>)
       }
 
