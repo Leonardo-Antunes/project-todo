@@ -10,8 +10,6 @@ import todoActions from "../../redux/actions/todoActions";
 
 
 
-
-
 export default function FormTodo() {
   const dispatch = useDispatch();
 
@@ -26,10 +24,10 @@ export default function FormTodo() {
   const handleDescriptionChange = (e) => {
     dispatch(inputActions.setInputDescription(e.target.value));
   };
-
-  const handleTagChange = (e) => {
-    dispatch(inputActions.setItemTag(e.target.value));
-  };
+  /* 
+    const handleTagChange = (e) => {
+      dispatch(inputActions.setItemTag(e.target.value));
+    }; */
 
   const addItem = (e) => {
     e.preventDefault();
@@ -44,6 +42,16 @@ export default function FormTodo() {
       dispatch(inputActions.resetInput());
     }
   };
+
+  const updateItem = () => {
+
+    if (title && description) {
+      dispatch(todoActions.updateItem(id, {
+        title, description
+      }))
+      dispatch(inputActions.resetInput())
+    }
+  }
 
   return (
     <form onSubmit={addItem}>
@@ -84,7 +92,15 @@ export default function FormTodo() {
           ))}
         </Select>
       </FormControl> */}
-      <ButtonBase type="submit">Adicionar tarefa</ButtonBase>
+      {id === -1 ?
+        (<ButtonBase type="submit">Add</ButtonBase>)
+        :
+        (<>
+          <ButtonBase onClick={updateItem} type="button">Update</ButtonBase>
+          <ButtonBase type="button">Delete</ButtonBase>
+        </>)
+      }
+
     </form>
   );
 }
