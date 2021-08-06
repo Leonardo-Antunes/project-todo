@@ -7,7 +7,6 @@ const SecaoDeTarefas = () => {
   const dispatch = useDispatch();
 
   const itens = useSelector((state) => state.todos.todos);
-  console.log(itens)
 
   const onItemClicked = (item, index) => {
     dispatch(inputActions.setInputId(index));

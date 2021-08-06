@@ -28,6 +28,7 @@ export default function FormTodo() {
   const title = useSelector((state) => state.inputs.title);
   const description = useSelector((state) => state.inputs.description);
   const isChecked = useSelector((state) => state.inputs.isChecked);
+
   // const tags = useSelector((state) => state.inputs.tag);
 
   const handleTitleChange = (e) => {
@@ -53,7 +54,7 @@ export default function FormTodo() {
         todoActions.addItem({
           title,
           description,
-          isChecked
+          isChecked,
           //tags,
         })
       );
@@ -83,7 +84,7 @@ export default function FormTodo() {
         variant="outlined"
         size="small"
       />
-      <TextField
+      {/* <TextField
         id="outlined-textarea"
         label="IsChecked"
         placeholder="Já terminou a tarefa?"
@@ -92,7 +93,24 @@ export default function FormTodo() {
         onChange={handleIsChecked}
         variant="outlined"
         size="small"
-      />
+      /> */}
+      <FormControl variant="outlined">
+        <InputLabel id="demo-simple-select-outlined-label">Tag</InputLabel>
+        <Select
+          labelId="checkedSelector"
+          id="checked"
+          value={isChecked}
+          onChange={handleIsChecked}
+          label="Check"
+          size="small"
+        >
+          {isChecked.map((index) => (
+            <MenuItem key={index} value={index}>
+              {isChecked}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
       {/* <FormControl variant="outlined">
         <InputLabel id="demo-simple-select-outlined-label">Tag</InputLabel>
         <Select

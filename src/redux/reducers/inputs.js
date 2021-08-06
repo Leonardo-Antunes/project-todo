@@ -5,7 +5,7 @@ const initialState = {
   id: -1,
   title: "",
   description: "",
-  isChecked: false,
+  isChecked: [true, false],
   // tag: [
   //   {
   //     tagName: 'todo',
