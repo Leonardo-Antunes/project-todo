@@ -27,18 +27,24 @@ export default function FormTodo() {
 
   const title = useSelector((state) => state.inputs.title);
   const description = useSelector((state) => state.inputs.description);
+  const isChecked = useSelector((state) => state.inputs.isChecked);
   // const tags = useSelector((state) => state.inputs.tag);
 
   const handleTitleChange = (e) => {
     dispatch(inputActions.setInputTitle(e.target.value));
   };
+
   const handleDescriptionChange = (e) => {
     dispatch(inputActions.setInputDescription(e.target.value));
   };
 
-  const handleTagChange = (e) => {
-    dispatch(inputActions.setItemTag(e.target.value));
+  const handleIsChecked = (e) => {
+    dispatch(inputActions.setIsChecked(e.target.value));
   };
+
+  // const handleTagChange = (e) => {
+  //   dispatch(inputActions.setItemTag(e.target.value));
+  // };
 
   const addItem = (e) => {
     e.preventDefault();
@@ -47,6 +53,7 @@ export default function FormTodo() {
         todoActions.addItem({
           title,
           description,
+          isChecked
           //tags,
         })
       );
@@ -73,6 +80,16 @@ export default function FormTodo() {
         multiline
         value={description}
         onChange={handleDescriptionChange}
+        variant="outlined"
+        size="small"
+      />
+      <TextField
+        id="outlined-textarea"
+        label="IsChecked"
+        placeholder="Já terminou a tarefa?"
+        multiline
+        value={isChecked}
+        onChange={handleIsChecked}
         variant="outlined"
         size="small"
       />

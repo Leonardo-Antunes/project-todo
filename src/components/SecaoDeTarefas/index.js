@@ -3,19 +3,17 @@ import { useSelector, useDispatch } from "react-redux";
 import inputActions from "../../redux/actions/inputActions";
 import { Card } from "..";
 
-
 const SecaoDeTarefas = () => {
   const dispatch = useDispatch();
-  const title = useSelector(state => state.inputs.title);
-  const description = useSelector(state => state.inputs.description);
 
-  const itens = useSelector(state => state.todos.todos)
+  const itens = useSelector((state) => state.todos.todos);
   console.log(itens)
 
   const onItemClicked = (item, index) => {
     dispatch(inputActions.setInputId(index));
     dispatch(inputActions.setInputTitle(item.title));
     dispatch(inputActions.setInputDescription(item.description));
+    dispatch(inputActions.setIsChecked(item.isChecked));
     // dispatch(inputActions.setItemTag(item.tag));
   };
 
@@ -26,12 +24,14 @@ const SecaoDeTarefas = () => {
   return (
     <div>
       {itens.map((item, index) => {
-        
+        console.log(item)
         if (item) {
           return (
             <Card
+              key={index}
               title={item.title}
               description={item.description}
+              isChecked={item.isChecked}
               // tag={item.todos.tag}
               onItemClicked={() => {
                 onItemClicked(item, index);

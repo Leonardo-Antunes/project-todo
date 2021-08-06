@@ -2,12 +2,8 @@
 import actionTypes from "../actionTypes";
 
 const initialState = {
-  todos: [{
-    id: 0,
-    title: "lavar a louça",
-    description: "pega",
-  }],
-}
+  todos: [],
+};
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -16,7 +12,7 @@ export default (state = initialState, action) => {
       todos.push(action.item);
       return {
         todos,
-      }
+      };
     }
     case actionTypes.UPDATE_ITEM: {
       const { index, item } = action;
@@ -24,20 +20,20 @@ export default (state = initialState, action) => {
       todos[index] = item;
       return {
         todos,
-      }
+      };
     }
     case actionTypes.DELETE_ITEM: {
       const { index } = action;
       const todos = [];
       state.todos.forEach((item, i) => {
-        if (index !== i) todos.push(item)
-      })
+        if (index !== i) todos.push(item);
+      });
       return {
         todos,
-      }
+      };
     }
 
     default:
-      return state
+      return state;
   }
-}
+};
