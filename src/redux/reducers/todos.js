@@ -6,6 +6,7 @@ const initialState = {
     id: 0,
     title: "lavar a louça",
     description: "pega",
+    // tag: 0
   }],
 }
 
