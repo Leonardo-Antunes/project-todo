@@ -40,7 +40,7 @@ export default function FormTodo() {
   };
 
   const handleIsChecked = (e) => {
-    dispatch(inputActions.setIsChecked(e.target.value));
+    dispatch(inputActions.setTodoChecked(e.target.value));
   };
 
   // const handleTagChange = (e) => {
@@ -94,6 +94,9 @@ export default function FormTodo() {
         variant="outlined"
         size="small"
       /> */}
+
+      {/*
+      Tentativa checar quando terminou tarefa
       <FormControl variant="outlined">
         <InputLabel id="demo-simple-select-outlined-label">Tag</InputLabel>
         <Select
@@ -110,7 +113,7 @@ export default function FormTodo() {
             </MenuItem>
           ))}
         </Select>
-      </FormControl>
+      </FormControl> */}
       {/* <FormControl variant="outlined">
         <InputLabel id="demo-simple-select-outlined-label">Tag</InputLabel>
         <Select

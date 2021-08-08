@@ -7,6 +7,7 @@ const SecaoDeTarefas = () => {
   const dispatch = useDispatch();
 
   const itens = useSelector((state) => state.todos.todos);
+  const isChecked = useSelector((state) => state.todos.todos);
 
   const onItemClicked = (item, index) => {
     dispatch(inputActions.setInputId(index));
@@ -23,14 +24,13 @@ const SecaoDeTarefas = () => {
   return (
     <div>
       {itens.map((item, index) => {
-        console.log(item)
         if (item) {
+          {console.log(isChecked)}
           return (
             <Card
               key={index}
               title={item.title}
               description={item.description}
-              isChecked={item.isChecked}
               // tag={item.todos.tag}
               onItemClicked={() => {
                 onItemClicked(item, index);

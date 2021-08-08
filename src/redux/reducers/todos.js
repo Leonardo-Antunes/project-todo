@@ -32,6 +32,13 @@ export default (state = initialState, action) => {
         todos,
       };
     }
+    case actionTypes.SET_TODO_CHECKED: {
+      const { isChecked } = action;
+      return {
+        ...state,
+        isChecked: !isChecked,
+      };
+    }
 
     default:
       return state;
