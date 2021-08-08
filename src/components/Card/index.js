@@ -7,13 +7,13 @@ const Card = ({ title, description, onItemClicked }) => {
   const [isChecked, setIsChecked] = useState(false);
   const dispatch = useDispatch();
 
-  const handleIsChecked = (e) => {
+  const handleIsChecked = () => {
     setIsChecked(!isChecked);
     dispatch(inputActions.setIsChecked(isChecked));
   };
 
   return (
-    <Wrapper>
+    <Wrapper color={isChecked ? "green" : "white" }>
       <CardTitle>{title}</CardTitle>
       <CardDescription> {description} </CardDescription>
       {/* <CardTag> {tag} </CardTag> */}
@@ -24,7 +24,6 @@ const Card = ({ title, description, onItemClicked }) => {
         checked={isChecked}
         onChange={handleIsChecked}
       />
-      <CardTitle>{isChecked ? "oi" : "tchau"}</CardTitle>
     </Wrapper>
   );
 };
