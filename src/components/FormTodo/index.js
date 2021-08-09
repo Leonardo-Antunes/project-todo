@@ -1,32 +1,20 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  TextField,
-  Dialog,
-  DialogContentText,
-  DialogContent,
-  DialogTitle,
-  DialogActions,
-  Button,
-  FormControl,
-  MenuItem,
-  InputLabel,
-  Select,
+  TextField, Button
 } from "@material-ui/core";
-import Autocomplete, {
-  createFilterOptions,
-} from "@material-ui/lab/Autocomplete";
+
 
 import inputActions from "../../redux/actions/inputActions";
 import todoActions from "../../redux/actions/todoActions";
 
-const filter = createFilterOptions();
 
 export default function FormTodo() {
   const dispatch = useDispatch();
 
-  const title = useSelector((state) => state.inputs.title);
-  const description = useSelector((state) => state.inputs.description);
+  const id = useSelector(state => state.inputs.id)
+  const title = useSelector(state => state.inputs.title);
+  const description = useSelector(state => state.inputs.description);
   const isChecked = useSelector((state) => state.inputs.isChecked);
 
   const handleTitleChange = (e) => {
@@ -51,6 +39,20 @@ export default function FormTodo() {
     }
   };
 
+  const updateItem = () => {
+    if (title && description) {
+      dispatch(todoActions.updateItem(id, {
+        title, description
+      }))
+      dispatch(inputActions.resetInput())
+    }
+  }
+
+  const deleteItem = () => {
+    dispatch(todoActions.deleteItem(id))
+    dispatch(inputActions.resetInput())
+  }
+
   return (
     <form onSubmit={addItem}>
       <TextField
@@ -58,7 +60,7 @@ export default function FormTodo() {
         label="Title"
         multiline
         maxRows={4}
-        value={title}
+        value={id !== -1 ? title : title}
         onChange={handleTitleChange}
         variant="outlined"
         size="small"
@@ -68,13 +70,21 @@ export default function FormTodo() {
         label="Description"
         placeholder="Describe your todo here"
         multiline
-        value={description}
+        value={id !== -1 ? description : description}
         onChange={handleDescriptionChange}
         variant="outlined"
         size="small"
       />
 
-      <button type="submit">Adicionar tarefa</button>
+      {id === -1 ?
+        (<Button type="submit">Adicionar</Button>)
+        :
+        (<>
+          <Button onClick={updateItem} type="button">Update</Button>
+          <Button onClick={deleteItem} type="button">Delete</Button>
+        </>)
+      }
     </form>
+
   );
 }

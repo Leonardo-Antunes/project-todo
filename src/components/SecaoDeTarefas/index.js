@@ -5,7 +5,6 @@ import { Card } from "..";
 
 const SecaoDeTarefas = () => {
   const dispatch = useDispatch();
-
   const itens = useSelector((state) => state.todos.todos);
 
   const onItemClicked = (item, index) => {
