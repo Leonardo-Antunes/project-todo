@@ -22,7 +22,7 @@ const SecaoDeTarefas = () => {
       <div>
         <h1>Todas as tarefas</h1>
         {itens.map((item, index) => {
-          if (item.isChecked === false) {
+          if (item) {
             return (
               <Card
                 key={index}
