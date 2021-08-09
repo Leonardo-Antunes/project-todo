@@ -1,14 +1,14 @@
 /* eslint-disable import/no-anonymous-default-export */
 import actionTypes from "../actionTypes";
 
-const initialState = {
+export const initialState = {
   id: -1,
   title: "",
   description: "",
   isChecked: false,
 };
 
-export default (state = initialState, action) => {
+const todoSlice = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SET_INPUT_ID: {
       const { id } = action;
@@ -45,3 +45,5 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+export default todoSlice;
