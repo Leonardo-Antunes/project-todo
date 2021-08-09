@@ -28,7 +28,6 @@ const SecaoDeTarefas = () => {
                 key={index}
                 title={item.title}
                 description={item.description}
-                // tag={item.todos.tag}
                 onItemClicked={() => {
                   onItemClicked(item, index);
                 }}

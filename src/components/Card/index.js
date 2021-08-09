@@ -1,6 +1,6 @@
 import { React, useState } from "react";
-import { CardTitle, Wrapper, CardDescription, CardTag } from "./style";
-import { useSelector, useDispatch } from "react-redux";
+import { CardTitle, Wrapper, CardDescription } from "./style";
+import { useDispatch } from "react-redux";
 import inputActions from "../../redux/actions/inputActions";
 
 const Card = ({ title, description, onItemClicked }) => {
@@ -16,7 +16,6 @@ const Card = ({ title, description, onItemClicked }) => {
     <Wrapper color={isChecked ? "green" : "white" }>
       <CardTitle>{title}</CardTitle>
       <CardDescription> {description} </CardDescription>
-      {/* <CardTag> {tag} </CardTag> */}
       <button onClick={onItemClicked}>Texto</button>
       <input
         className="toggle"
