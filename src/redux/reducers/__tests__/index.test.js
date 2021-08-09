@@ -1,4 +1,3 @@
-import initialState from "../index";
 import reducer from "../index";
 
 test("should return the initial state", () => {
