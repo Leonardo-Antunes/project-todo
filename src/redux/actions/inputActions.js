@@ -14,6 +14,10 @@ export default {
     type: actionTypes.SET_INPUT_ID,
     id,
   }),
+  setIsChecked: (isChecked) => ({
+    type: actionTypes.SET_TODO_CHECKED,
+    isChecked,
+  }),
   resetInput: () => ({
     type: actionTypes.RESET_INPUT,
   }),

@@ -15,10 +15,12 @@ export default function FormTodo() {
   const id = useSelector(state => state.inputs.id)
   const title = useSelector(state => state.inputs.title);
   const description = useSelector(state => state.inputs.description);
+  const isChecked = useSelector((state) => state.inputs.isChecked);
 
   const handleTitleChange = (e) => {
     dispatch(inputActions.setInputTitle(e.target.value));
   };
+
   const handleDescriptionChange = (e) => {
     dispatch(inputActions.setInputDescription(e.target.value));
   };
@@ -30,6 +32,7 @@ export default function FormTodo() {
         todoActions.addItem({
           title,
           description,
+          isChecked,
         })
       );
       dispatch(inputActions.resetInput());
