@@ -2,11 +2,13 @@
 import actionTypes from "../actionTypes";
 
 const initialState = {
-  todos: [{
-    id: 0,
-    title: "lavar a louça",
-    description: "pega",
-  }],
+  todos: [
+    {
+      id: 0,
+      title: "lavar a louça",
+      description: "pega",
+    },
+  ]
 }
 
 export default (state = initialState, action) => {

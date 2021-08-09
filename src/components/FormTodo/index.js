@@ -1,43 +1,26 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  TextField,
-  Dialog,
-  DialogContentText,
-  DialogContent,
-  DialogTitle,
-  DialogActions,
-  Button,
-  FormControl,
-  MenuItem,
-  InputLabel,
-  Select,
+  TextField, Button
 } from "@material-ui/core";
-import Autocomplete, {
-  createFilterOptions,
-} from "@material-ui/lab/Autocomplete";
+
 
 import inputActions from "../../redux/actions/inputActions";
 import todoActions from "../../redux/actions/todoActions";
 
-const filter = createFilterOptions();
 
 export default function FormTodo() {
   const dispatch = useDispatch();
 
-  const title = useSelector((state) => state.inputs.title);
-  const description = useSelector((state) => state.inputs.description);
-  // const tags = useSelector((state) => state.inputs.tag);
+  const id = useSelector(state => state.inputs.id)
+  const title = useSelector(state => state.inputs.title);
+  const description = useSelector(state => state.inputs.description);
 
   const handleTitleChange = (e) => {
     dispatch(inputActions.setInputTitle(e.target.value));
   };
   const handleDescriptionChange = (e) => {
     dispatch(inputActions.setInputDescription(e.target.value));
-  };
-
-  const handleTagChange = (e) => {
-    dispatch(inputActions.setItemTag(e.target.value));
   };
 
   const addItem = (e) => {
@@ -47,12 +30,25 @@ export default function FormTodo() {
         todoActions.addItem({
           title,
           description,
-          //tags,
         })
       );
       dispatch(inputActions.resetInput());
     }
   };
+
+  const updateItem = () => {
+    if (title && description) {
+      dispatch(todoActions.updateItem(id, {
+        title, description
+      }))
+      dispatch(inputActions.resetInput())
+    }
+  }
+
+  const deleteItem = () => {
+    dispatch(todoActions.deleteItem(id))
+    dispatch(inputActions.resetInput())
+  }
 
   return (
     <form onSubmit={addItem}>
@@ -61,7 +57,7 @@ export default function FormTodo() {
         label="Title"
         multiline
         maxRows={4}
-        value={title}
+        value={id !== -1 ? title : title}
         onChange={handleTitleChange}
         variant="outlined"
         size="small"
@@ -71,29 +67,21 @@ export default function FormTodo() {
         label="Description"
         placeholder="Describe your todo here"
         multiline
-        value={description}
+        value={id !== -1 ? description : description}
         onChange={handleDescriptionChange}
         variant="outlined"
         size="small"
       />
-      {/* <FormControl variant="outlined">
-        <InputLabel id="demo-simple-select-outlined-label">Tag</InputLabel>
-        <Select
-          labelId="tagSelector"
-          id="tagSelector"
-          value={tags}
-          onChange={handleTagChange}
-          label="Tag"
-          size="small"
-        >
-          {tags.map((tag, index) => (
-            <MenuItem key={index} value={index}>
-              {tag.tagName}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl> */}
-      <button type="submit">Adicionar tarefa</button>
+
+      {id === -1 ?
+        (<Button type="submit">Adicionar</Button>)
+        :
+        (<>
+          <Button onClick={updateItem} type="button">Update</Button>
+          <Button onClick={deleteItem} type="button">Delete</Button>
+        </>)
+      }
     </form>
+
   );
 }

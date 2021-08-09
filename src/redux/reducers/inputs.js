@@ -2,24 +2,9 @@
 import actionTypes from "../actionTypes";
 
 const initialState = {
-  id: 0,
-  title: "lavar a louça",
-  description: "pega",
-  // tag: [
-  //   {
-  //     tagName: 'todo',
-  //     tagColor: '#f3722c'
-  //   },
-  //   {
-  //     tagName: 'lazer',
-  //     tagColor: '#4d908e'
-  //   },
-  //   {
-  //     tagName: 'livros',
-  //     tagColor: '#f9844a'
-  //   },
-
-  // ]
+  id: -1,
+  title: "",
+  description: "",
 }
 
 export default (state = initialState, action) => {
@@ -45,13 +30,6 @@ export default (state = initialState, action) => {
         description,
       }
     }
-    // case actionTypes.SET_ITEM_TAG: {
-    //   const { tag } = action;
-    //   return {
-    //     ...state,
-    //     tag,
-    //   }
-    // }
     case actionTypes.RESET_INPUT: {
       return initialState
     }
