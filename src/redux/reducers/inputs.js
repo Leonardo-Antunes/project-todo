@@ -5,21 +5,6 @@ const initialState = {
   id: -1,
   title: "",
   description: "",
-  tag: [
-    {
-      tagName: 'todo',
-      tagColor: '#f3722c'
-    },
-    {
-      tagName: 'lazer',
-      tagColor: '#4d908e'
-    },
-    {
-      tagName: 'livros',
-      tagColor: '#f9844a'
-    },
-
-  ]
 }
 
 export default (state = initialState, action) => {
@@ -43,13 +28,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         description,
-      }
-    }
-    case actionTypes.SET_ITEM_TAG: {
-      const { tag } = action;
-      return {
-        ...state,
-        tag,
       }
     }
     case actionTypes.RESET_INPUT: {
