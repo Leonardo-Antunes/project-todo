@@ -12,7 +12,6 @@ const SecaoDeTarefas = () => {
     dispatch(inputActions.setInputId(index));
     dispatch(inputActions.setInputTitle(item.title));
     dispatch(inputActions.setInputDescription(item.description));
-    // dispatch(inputActions.setItemTag(item.tag));
   };
 
   if (itens.length === 0) {
