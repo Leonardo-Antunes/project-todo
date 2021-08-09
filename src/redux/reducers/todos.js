@@ -18,6 +18,7 @@ export default (state = initialState, action) => {
       const { index, item } = action;
       const todos = [...state.todos];
       todos[index] = item;
+      console.log(todos)
       return {
         todos,
       };
