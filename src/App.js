@@ -1,7 +1,8 @@
 import React from "react";
+
 import { SecaoDeTarefas, FormTodo } from "./components";
 
-function App() {
+export default function App() {
   return (
     <>
       <FormTodo />
@@ -9,5 +10,3 @@ function App() {
     </>
   );
 }
-
-export default App;
