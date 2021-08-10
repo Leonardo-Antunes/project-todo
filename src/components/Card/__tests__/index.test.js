@@ -14,4 +14,5 @@ describe("Card", () => {
   it("renders correctly with 3 props", () => {
     // fazer teste
   }); */
+  
 });
