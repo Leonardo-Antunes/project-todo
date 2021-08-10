@@ -6,12 +6,12 @@ import { Wrapper } from "../style";
 
 describe("Card", () => {
 
-  it("renders correctly", () => {
+  /* it("renders correctly", () => {
     const tree = renderer.create(<Card></Card>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("renders correctly with 3 props", () => {
     // fazer teste
-  });
+  }); */
 });

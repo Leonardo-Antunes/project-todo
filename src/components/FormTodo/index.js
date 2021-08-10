@@ -8,7 +8,6 @@ import {
 import inputActions from "../../redux/actions/inputActions";
 import todoActions from "../../redux/actions/todoActions";
 
-
 export default function FormTodo() {
   const dispatch = useDispatch();
 
@@ -66,7 +65,7 @@ export default function FormTodo() {
         size="small"
       />
       <TextField
-        id="outlined-textarea"
+        id="description"
         label="Description"
         placeholder="Describe your todo here"
         multiline
