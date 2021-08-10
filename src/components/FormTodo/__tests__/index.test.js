@@ -1,8 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store'
-import { render, screen } from '@testing-library/react';
-import { mount, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import FormTodo from '../index';
 
 
@@ -27,7 +26,7 @@ const setup = () => shallow(
 
 
 describe('testing FormTodo Component', () => {
-  
+
   test('renders non-empty component without crashing', () => {
     const wrapper = setup();
     expect(wrapper.length).toBe(1)
@@ -46,6 +45,15 @@ describe('testing FormTodo Component', () => {
 
     const TextFieldDescription = wrapper.find({ id: 'description' });
     expect(TextFieldDescription).toBeTruthy()
+  })
+
+  test('should call addItem method when click on the submit button', () => {
+    const wrapper = setup();
+
+    const spy = jest.spyOn(wrapper.instance, "addItem");
+    wrapper.find("Button").simulate("click");
+    expect(spy).toHaveBeenCalled();
+
   })
 
 })
