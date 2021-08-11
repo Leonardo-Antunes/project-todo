@@ -46,7 +46,7 @@ describe('testing FormTodo Component', () => {
     const TextFieldDescription = wrapper.find({ id: 'description' });
     expect(TextFieldDescription).toBeTruthy()
   })
-
+/* 
   test('should call addItem method when click on the submit button', () => {
     const wrapper = setup();
 
@@ -54,6 +54,6 @@ describe('testing FormTodo Component', () => {
     wrapper.find("Button").simulate("click");
     expect(spy).toHaveBeenCalled();
 
-  })
+  }) */
 
 })
