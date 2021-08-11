@@ -5,20 +5,7 @@ export const initialState = {
   id: -1,
   title: "",
   description: "",
-  tag: [
-    {
-      tagName: "todo",
-      tagColor: "#fff"
-    },
-    {
-      tagName: "lazer",
-      tagColor: "#fff"
-    },
-    {
-      tagName: "trabalho",
-      tagColor: "#fff"
-    },
-  ],
+  tag: "",
   isChecked: false,
 };
 

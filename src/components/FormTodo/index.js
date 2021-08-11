@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   TextField, Button
 } from "@material-ui/core";
+import { Autocomplete } from "@material-ui/lab";
 
 
 import inputActions from "../../redux/actions/inputActions";
@@ -14,7 +15,27 @@ export default function FormTodo() {
   const id = useSelector(state => state.inputs.id)
   const title = useSelector(state => state.inputs.title);
   const description = useSelector(state => state.inputs.description);
+  const tag = useSelector(state => state.inputs.tag);
   const isChecked = useSelector((state) => state.inputs.isChecked);
+
+  const itens = useSelector(state => state.todos.todos)
+  console.log(itens)
+
+  const tags =
+    [
+      {
+        tagName: "todo",
+        tagColor: "#fff"
+      },
+      {
+        tagName: "lazer",
+        tagColor: "#fff"
+      },
+      {
+        tagName: "trabalho",
+        tagColor: "#fff"
+      },
+    ]
 
   const handleTitleChange = (e) => {
     dispatch(inputActions.setInputTitle(e.target.value));
@@ -24,13 +45,21 @@ export default function FormTodo() {
     dispatch(inputActions.setInputDescription(e.target.value));
   };
 
+  const handleTagChange = (e, value) => {
+    //const index = (e.target.id).split('-')
+    //dispatch(inputActions.setTag(index[2]));
+    dispatch(inputActions.setTag(value));
+
+  };
+
   const addItem = (e) => {
     e.preventDefault();
-    if (title && description) {
+    if (title && description && tag) {
       dispatch(
         todoActions.addItem({
           title,
           description,
+          tag,
           isChecked,
         })
       );
@@ -39,9 +68,9 @@ export default function FormTodo() {
   };
 
   const updateItem = () => {
-    if (title && description) {
+    if (title && description && tag) {
       dispatch(todoActions.updateItem(id, {
-        title, description
+        title, description, tag
       }))
       dispatch(inputActions.resetInput())
     }
@@ -51,6 +80,7 @@ export default function FormTodo() {
     dispatch(todoActions.deleteItem(id))
     dispatch(inputActions.resetInput())
   }
+
 
   return (
     <form onSubmit={addItem}>
@@ -73,6 +103,16 @@ export default function FormTodo() {
         onChange={handleDescriptionChange}
         variant="outlined"
         size="small"
+      />
+      <Autocomplete
+        id="tag"
+        selectOnFocus
+        options={tags}
+        getOptionLabel={(option) => option.tagName}
+        getOptionSelected={(option, value) => option.tagName === value.tagName}
+        renderInput={(params) => (<TextField {...params} label="Tag" variant="outlined" margin="normal" />)}
+        size="small"
+        onChange={handleTagChange}
       />
 
       {id === -1 ?
