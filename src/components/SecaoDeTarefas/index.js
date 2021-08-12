@@ -10,7 +10,6 @@ const SecaoDeTarefas = () => {
 
   
   const onItemClicked = (item, index) => {
-    console.log("tarefas: ", itens)
     dispatch(todoActions.setIndex(index));
     dispatch(inputActions.setInputId(item.id));
     dispatch(inputActions.setInputTitle(item.title));

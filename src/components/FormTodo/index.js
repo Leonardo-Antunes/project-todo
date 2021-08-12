@@ -19,9 +19,6 @@ export default function FormTodo() {
   const tag = useSelector(state => state.inputs.tag);
   const isChecked = useSelector(state => state.inputs.isChecked);
 
-  const itens = useSelector(state => state.todos.todos)
-  console.log("form todo: ", itens)
-
   const tags =
     [
       {
