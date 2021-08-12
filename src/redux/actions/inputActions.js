@@ -14,6 +14,10 @@ export default {
     type: actionTypes.SET_INPUT_ID,
     id,
   }),
+  setTag: (tag) => ({
+    type: actionTypes.SET_TODO_TAG,
+    tag,
+  }),
   setIsChecked: (isChecked) => ({
     type: actionTypes.SET_TODO_CHECKED,
     isChecked,

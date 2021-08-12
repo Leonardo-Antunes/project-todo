@@ -5,6 +5,7 @@ export const initialState = {
   id: -1,
   title: "",
   description: "",
+  tag: "",
   isChecked: false,
 };
 
@@ -29,6 +30,13 @@ const todoSlice = (state = initialState, action) => {
       return {
         ...state,
         description,
+      };
+    }
+    case actionTypes.SET_TODO_TAG: {
+      const { tag } = action;
+      return {
+        ...state,
+        tag,
       };
     }
     case actionTypes.SET_TODO_CHECKED: {
