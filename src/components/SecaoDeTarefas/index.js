@@ -11,7 +11,10 @@ const SecaoDeTarefas = () => {
     dispatch(inputActions.setInputId(index));
     dispatch(inputActions.setInputTitle(item.title));
     dispatch(inputActions.setInputDescription(item.description));
+    dispatch(inputActions.setTag(item.tag))
   };
+
+  //console.log(itens[0].tag.tagColor)
 
   if (itens.length === 0) {
     return <p>Nao ha todos</p>;
@@ -28,6 +31,8 @@ const SecaoDeTarefas = () => {
                 key={index}
                 title={item.title}
                 description={item.description}
+                tag={item.tag.tagName}
+                tagColor={item.tag.tagColor}
                 onItemClicked={() => {
                   onItemClicked(item, index);
                 }}

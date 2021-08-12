@@ -25,15 +25,15 @@ export default function FormTodo() {
     [
       {
         tagName: "todo",
-        tagColor: "#fff"
+        tagColor: "#e76f51"
       },
       {
         tagName: "lazer",
-        tagColor: "#fff"
+        tagColor: "#264653"
       },
       {
         tagName: "trabalho",
-        tagColor: "#fff"
+        tagColor: "#fb8500"
       },
     ]
 
@@ -47,7 +47,6 @@ export default function FormTodo() {
 
   const handleTagChange = (e, value) => {
     dispatch(inputActions.setTag(value));
-
   };
 
   const addItem = (e) => {
@@ -105,7 +104,10 @@ export default function FormTodo() {
       />
       <Autocomplete
         id="tag"
-        //limpar campo
+        autoComplete
+        clearOnBlur={true}
+        handleHomeEndKeys
+        
         selectOnFocus
         options={tags}
         getOptionLabel={(option) => option.tagName}
