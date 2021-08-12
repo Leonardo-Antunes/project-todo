@@ -32,14 +32,13 @@ export default (state = initialState, action) => {
         todos,
       };
     }
-    case actionTypes.SET_TODO_CHECKED: {
-      const { isChecked } = action;
+    case actionTypes.SET_TODO_INDEX: {
+      const { index } = action;
       return {
         ...state,
-        isChecked: !isChecked,
+        index,
       };
     }
-
     default:
       return state;
   }

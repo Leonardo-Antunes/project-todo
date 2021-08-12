@@ -12,6 +12,7 @@ import todoActions from "../../redux/actions/todoActions";
 export default function FormTodo() {
   const dispatch = useDispatch();
 
+  const index = useSelector(state => state.todos.index)
   const id = useSelector(state => state.inputs.id)
   const title = useSelector(state => state.inputs.title);
   const description = useSelector(state => state.inputs.description);
@@ -19,7 +20,7 @@ export default function FormTodo() {
   const isChecked = useSelector(state => state.inputs.isChecked);
 
   const itens = useSelector(state => state.todos.todos)
-  console.log(itens)
+  console.log("form todo: ", itens)
 
   const tags =
     [
@@ -67,15 +68,16 @@ export default function FormTodo() {
 
   const updateItem = () => {
     if (title && description && tag) {
-      dispatch(todoActions.updateItem(id, {
-        title, description, tag
+      console.log("index recebido", index)
+      dispatch(todoActions.updateItem(index, {
+        id, title, description, tag
       }))
       dispatch(inputActions.resetInput())
     }
   }
 
   const deleteItem = () => {
-    dispatch(todoActions.deleteItem(id))
+    dispatch(todoActions.deleteItem(index))
     dispatch(inputActions.resetInput())
   }
 
@@ -107,7 +109,7 @@ export default function FormTodo() {
         autoComplete
         clearOnBlur={true}
         handleHomeEndKeys
-        
+
         selectOnFocus
         options={tags}
         getOptionLabel={(option) => option.tagName}
