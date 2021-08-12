@@ -15,4 +15,8 @@ export default {
     type: actionTypes.DELETE_ITEM,
     index,
   }),
+  setIndex: (index) => ({
+    type: actionTypes.SET_TODO_INDEX,
+    index,
+  }),
 };

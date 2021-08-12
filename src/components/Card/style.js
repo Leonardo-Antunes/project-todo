@@ -21,6 +21,7 @@ export const CardDescription = styled.p`
 `;
 
 export const CardTag = styled.span`
-  background-color: aqua;
-    
+  background-color: ${props => props.bgColor};
+  border-radius: 10px;
+  width: 40%;
 `;
