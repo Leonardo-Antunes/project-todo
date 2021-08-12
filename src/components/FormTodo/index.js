@@ -16,7 +16,7 @@ export default function FormTodo() {
   const title = useSelector(state => state.inputs.title);
   const description = useSelector(state => state.inputs.description);
   const tag = useSelector(state => state.inputs.tag);
-  const isChecked = useSelector((state) => state.inputs.isChecked);
+  const isChecked = useSelector(state => state.inputs.isChecked);
 
   const itens = useSelector(state => state.todos.todos)
   console.log(itens)
@@ -46,8 +46,6 @@ export default function FormTodo() {
   };
 
   const handleTagChange = (e, value) => {
-    //const index = (e.target.id).split('-')
-    //dispatch(inputActions.setTag(index[2]));
     dispatch(inputActions.setTag(value));
 
   };
@@ -57,6 +55,7 @@ export default function FormTodo() {
     if (title && description && tag) {
       dispatch(
         todoActions.addItem({
+          id: Date.now(),
           title,
           description,
           tag,
@@ -106,6 +105,7 @@ export default function FormTodo() {
       />
       <Autocomplete
         id="tag"
+        //limpar campo
         selectOnFocus
         options={tags}
         getOptionLabel={(option) => option.tagName}
