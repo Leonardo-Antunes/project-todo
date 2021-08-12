@@ -19,6 +19,9 @@ export default function FormTodo() {
   const tag = useSelector(state => state.inputs.tag);
   const isChecked = useSelector(state => state.inputs.isChecked);
 
+  const itens = useSelector(state => state.todos.todos)
+  console.log(itens)
+
   const tags =
     [
       {
@@ -34,6 +37,10 @@ export default function FormTodo() {
         tagColor: "#fb8500"
       },
     ]
+
+  const handleIsChecked = () => {
+    dispatch(inputActions.setIsChecked(!isChecked))
+  };
 
   const handleTitleChange = (e) => {
     dispatch(inputActions.setInputTitle(e.target.value));
@@ -56,7 +63,7 @@ export default function FormTodo() {
           title,
           description,
           tag,
-          isChecked,
+          isChecked: false,
         })
       );
       dispatch(inputActions.resetInput());
@@ -65,9 +72,8 @@ export default function FormTodo() {
 
   const updateItem = () => {
     if (title && description && tag) {
-      console.log("index recebido", index)
       dispatch(todoActions.updateItem(index, {
-        id, title, description, tag
+        id, title, description, tag, isChecked
       }))
       dispatch(inputActions.resetInput())
     }
@@ -106,7 +112,6 @@ export default function FormTodo() {
         autoComplete
         clearOnBlur={true}
         handleHomeEndKeys
-
         selectOnFocus
         options={tags}
         getOptionLabel={(option) => option.tagName}
@@ -120,6 +125,13 @@ export default function FormTodo() {
         (<Button type="submit">Adicionar</Button>)
         :
         (<>
+          <input
+            className="toggle"
+            type="checkbox"
+            value={id !== -1 ? isChecked : isChecked}
+            checked={isChecked}
+            onChange={handleIsChecked}
+          />
           <Button onClick={updateItem} type="button">Update</Button>
           <Button onClick={deleteItem} type="button">Delete</Button>
         </>)

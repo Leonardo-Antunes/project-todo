@@ -8,7 +8,7 @@ const SecaoDeTarefas = () => {
   const dispatch = useDispatch();
   const itens = useSelector((state) => state.todos.todos);
 
-  
+
   const onItemClicked = (item, index) => {
     dispatch(todoActions.setIndex(index));
     dispatch(inputActions.setInputId(item.id));
@@ -26,14 +26,15 @@ const SecaoDeTarefas = () => {
       <div>
         <h1>Todas as tarefas</h1>
         {itens.map((item, index) => {
-          if (item) {
+          if (item && !item.isChecked) {
             return (
               <Card
                 key={item.id}
                 title={item.title}
                 description={item.description}
-                tag={item.tag.tagName}
-                tagColor={item.tag.tagColor}
+                isChecked={item.isChecked}
+                //tag={item.tag.tagName ? item.tag.tagName : "sem tag"}
+                //tagColor={item.tag.tagColor ? item.tag.tagColor : "fff"}
                 onItemClicked={() => {
                   onItemClicked(item, index)
                 }}
@@ -43,6 +44,28 @@ const SecaoDeTarefas = () => {
           return null;
         })}
       </div>
+      <div>
+        <h1>Concluídas</h1>
+        {itens.map((item, index) => {
+          if (item && item.isChecked) {
+            return (
+              <Card
+                key={item.id}
+                title={item.title}
+                description={item.description}
+                isChecked={item.isChecked}
+                //tag={item.tag.tagName}
+                //tagColor={item.tag.tagColor}
+                onItemClicked={() => {
+                  onItemClicked(item, index)
+                }}
+              />
+            );
+          }
+          return null;
+        })}
+      </div>
+
     </>
   );
 };
