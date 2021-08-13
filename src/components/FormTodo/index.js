@@ -9,6 +9,7 @@ import todoActions from "../../redux/actions/todoActions";
 export default function FormTodo() {
   const dispatch = useDispatch();
 
+
   const index = useSelector((state) => state.todos.index);
   const id = useSelector((state) => state.inputs.id);
   const title = useSelector((state) => state.inputs.title);
@@ -23,7 +24,6 @@ export default function FormTodo() {
     labelInput = tagName;
   }
 
-  console.log(tagName)
   const isChecked = useSelector((state) => state.inputs.isChecked);
 
   const itens = useSelector((state) => state.todos.todos);

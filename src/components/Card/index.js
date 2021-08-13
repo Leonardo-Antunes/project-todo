@@ -1,16 +1,23 @@
-import { React } from "react";
-import { CardTitle, Wrapper, CardDescription, CardTag } from "./style";
+import React from "react";
+import { CardTodo, CardTitle, CardDescription, Tag, Concluido, NaoConcluido, TagBox } from "./style";
 
 const Card = ({ title, isChecked, description, tagName, tagColor, onItemClicked }) => {
- 
+
   return (
-    <Wrapper color={isChecked ? "green" : "white"}>
-      <CardTitle>{title}</CardTitle>
-      <CardDescription> {description} </CardDescription>
-      <CardTag bgColor={tagColor}>{tagName}</CardTag>
-      <button onClick={onItemClicked}>Texto</button>
-    </Wrapper>
-  );
+
+
+    <CardTodo onClick={onItemClicked}>
+      <CardTitle variant="h6">{title}</CardTitle>
+      <CardDescription variant="body2"> {description} </CardDescription>
+      <TagBox>
+        <Tag label={tagName} bgcolor={tagColor} />
+        {isChecked ?
+          <Concluido /> :
+          <NaoConcluido />
+        }
+      </TagBox>
+    </CardTodo>
+  )
 };
 
 export default Card;
