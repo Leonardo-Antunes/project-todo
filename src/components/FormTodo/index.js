@@ -92,7 +92,7 @@ export default function FormTodo() {
         label="Title"
         multiline
         maxRows={4}
-        value={id !== -1 ? title : title}
+        value={title}
         onChange={handleTitleChange}
         variant="outlined"
         size="small"
@@ -102,7 +102,7 @@ export default function FormTodo() {
         label="Description"
         placeholder="Describe your todo here"
         multiline
-        value={id !== -1 ? description : description}
+        value={description}
         onChange={handleDescriptionChange}
         variant="outlined"
         size="small"
