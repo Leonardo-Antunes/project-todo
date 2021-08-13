@@ -8,13 +8,13 @@ const SecaoDeTarefas = () => {
   const dispatch = useDispatch();
   const itens = useSelector((state) => state.todos.todos);
 
-
   const onItemClicked = (item, index) => {
     dispatch(todoActions.setIndex(index));
     dispatch(inputActions.setInputId(item.id));
     dispatch(inputActions.setInputTitle(item.title));
     dispatch(inputActions.setInputDescription(item.description));
-    dispatch(inputActions.setTag(item.tag))
+    dispatch(inputActions.setTag(item.tag));
+    dispatch(inputActions.setIsChecked(item.isChecked));
   };
 
   if (itens.length === 0) {
@@ -36,7 +36,7 @@ const SecaoDeTarefas = () => {
                 tagName={item.tag.tagName}
                 tagColor={item.tag.tagColor}
                 onItemClicked={() => {
-                  onItemClicked(item, index)
+                  onItemClicked(item, index);
                 }}
               />
             );
@@ -57,7 +57,7 @@ const SecaoDeTarefas = () => {
                 tag={item.tag.tagName}
                 tagColor={item.tag.tagColor}
                 onItemClicked={() => {
-                  onItemClicked(item, index)
+                  onItemClicked(item, index);
                 }}
               />
             );
@@ -65,7 +65,6 @@ const SecaoDeTarefas = () => {
           return null;
         })}
       </div>
-
     </>
   );
 };

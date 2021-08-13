@@ -128,7 +128,7 @@ export default function FormTodo() {
           <input
             className="toggle"
             type="checkbox"
-            value={id !== -1 ? isChecked : isChecked}
+            value={isChecked}
             checked={isChecked}
             onChange={handleIsChecked}
           />
