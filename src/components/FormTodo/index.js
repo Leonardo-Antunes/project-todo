@@ -1,10 +1,7 @@
-import React from "react";
+import {React} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  TextField, Button
-} from "@material-ui/core";
+import { TextField, Button } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
-
 
 import inputActions from "../../redux/actions/inputActions";
 import todoActions from "../../redux/actions/todoActions";
@@ -12,34 +9,42 @@ import todoActions from "../../redux/actions/todoActions";
 export default function FormTodo() {
   const dispatch = useDispatch();
 
-  const index = useSelector(state => state.todos.index)
-  const id = useSelector(state => state.inputs.id)
-  const title = useSelector(state => state.inputs.title);
-  const description = useSelector(state => state.inputs.description);
-  const tag = useSelector(state => state.inputs.tag);
-  const isChecked = useSelector(state => state.inputs.isChecked);
+  const index = useSelector((state) => state.todos.index);
+  const id = useSelector((state) => state.inputs.id);
+  const title = useSelector((state) => state.inputs.title);
+  const description = useSelector((state) => state.inputs.description);
+  const tag = useSelector((state) => state.inputs.tag);
+  const tagName = useSelector((state) => state.inputs.tag.tagName);
 
-  const itens = useSelector(state => state.todos.todos)
-  console.log(itens)
+  let labelInput = "";
+  if(tagName === undefined) {
+    labelInput = "";
+  } else {
+    labelInput = tagName;
+  }
 
-  const tags =
-    [
-      {
-        tagName: "todo",
-        tagColor: "#e76f51"
-      },
-      {
-        tagName: "lazer",
-        tagColor: "#264653"
-      },
-      {
-        tagName: "trabalho",
-        tagColor: "#fb8500"
-      },
-    ]
+  console.log(tagName)
+  const isChecked = useSelector((state) => state.inputs.isChecked);
+
+  const itens = useSelector((state) => state.todos.todos);
+
+  const tags = [
+    {
+      tagName: "todo",
+      tagColor: "#e76f51",
+    },
+    {
+      tagName: "lazer",
+      tagColor: "#264653",
+    },
+    {
+      tagName: "trabalho",
+      tagColor: "#fb8500",
+    },
+  ];
 
   const handleIsChecked = () => {
-    dispatch(inputActions.setIsChecked(!isChecked))
+    dispatch(inputActions.setIsChecked(!isChecked));
   };
 
   const handleTitleChange = (e) => {
@@ -72,18 +77,23 @@ export default function FormTodo() {
 
   const updateItem = () => {
     if (title && description && tag) {
-      dispatch(todoActions.updateItem(index, {
-        id, title, description, tag, isChecked
-      }))
-      dispatch(inputActions.resetInput())
+      dispatch(
+        todoActions.updateItem(index, {
+          id,
+          title,
+          description,
+          tag,
+          isChecked,
+        })
+      );
+      dispatch(inputActions.resetInput());
     }
-  }
+  };
 
   const deleteItem = () => {
-    dispatch(todoActions.deleteItem(index))
-    dispatch(inputActions.resetInput())
-  }
-
+    dispatch(todoActions.deleteItem(index));
+    dispatch(inputActions.resetInput());
+  };
 
   return (
     <form onSubmit={addItem}>
@@ -112,19 +122,27 @@ export default function FormTodo() {
         autoComplete
         clearOnBlur={true}
         handleHomeEndKeys
+        inputValue={labelInput}
         selectOnFocus
         options={tags}
         getOptionLabel={(option) => option.tagName}
         getOptionSelected={(option, value) => option.tagName === value.tagName}
-        renderInput={(params) => (<TextField {...params} label="Tag" variant="outlined" margin="normal" />)}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label="Tag"
+            variant="outlined"
+            margin="normal"
+          />
+        )}
         size="small"
         onChange={handleTagChange}
       />
 
-      {id === -1 ?
-        (<Button type="submit">Adicionar</Button>)
-        :
-        (<>
+      {id === -1 ? (
+        <Button type="submit">Adicionar</Button>
+      ) : (
+        <>
           <input
             className="toggle"
             type="checkbox"
@@ -132,11 +150,14 @@ export default function FormTodo() {
             checked={isChecked}
             onChange={handleIsChecked}
           />
-          <Button onClick={updateItem} type="button">Update</Button>
-          <Button onClick={deleteItem} type="button">Delete</Button>
-        </>)
-      }
+          <Button onClick={updateItem} type="button">
+            Update
+          </Button>
+          <Button onClick={deleteItem} type="button">
+            Delete
+          </Button>
+        </>
+      )}
     </form>
-
   );
 }
