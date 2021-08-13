@@ -40,9 +40,7 @@ const todoSlice = (state = initialState, action) => {
       };
     }
     case actionTypes.SET_TODO_CHECKED: {
-      console.log("Chamou", action)
       let { isChecked } = action;
-      console.log(isChecked)
       return {
         ...state,
         isChecked,
