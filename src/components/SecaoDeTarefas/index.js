@@ -7,6 +7,7 @@ import todoActions from "../../redux/actions/todoActions";
 const SecaoDeTarefas = () => {
   const dispatch = useDispatch();
   const itens = useSelector((state) => state.todos.todos);
+  
 
   const onItemClicked = (item, index) => {
     dispatch(todoActions.setIndex(index));
