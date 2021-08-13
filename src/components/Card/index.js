@@ -10,7 +10,7 @@ const Card = ({ title, isChecked, description, tagName, tagColor, onItemClicked 
       <CardTitle variant="h6">{title}</CardTitle>
       <CardDescription variant="body2"> {description} </CardDescription>
       <TagBox>
-        <Tag label={tagName} bgcolor={tagColor} />
+        <Tag label={tagName} bgcolor={tagColor}/>
         {isChecked ?
           <Concluido /> :
           <NaoConcluido />
