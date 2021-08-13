@@ -33,6 +33,7 @@ const todoSlice = (state = initialState, action) => {
       };
     }
     case actionTypes.SET_TODO_TAG: {
+      console.log("Chamou", action)
       const { tag } = action;
       return {
         ...state,
@@ -40,7 +41,6 @@ const todoSlice = (state = initialState, action) => {
       };
     }
     case actionTypes.SET_TODO_CHECKED: {
-      console.log("Chamou", action)
       let { isChecked } = action;
       console.log(isChecked)
       return {
