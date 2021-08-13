@@ -1,4 +1,4 @@
-import {React} from "react";
+import { React } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { TextField, Button } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
@@ -9,7 +9,6 @@ import todoActions from "../../redux/actions/todoActions";
 export default function FormTodo() {
   const dispatch = useDispatch();
 
-
   const index = useSelector((state) => state.todos.index);
   const id = useSelector((state) => state.inputs.id);
   const title = useSelector((state) => state.inputs.title);
@@ -18,7 +17,7 @@ export default function FormTodo() {
   const tagName = useSelector((state) => state.inputs.tag.tagName);
 
   let labelInput = "";
-  if(tagName === undefined) {
+  if (tagName === undefined) {
     labelInput = "";
   } else {
     labelInput = tagName;
@@ -73,6 +72,10 @@ export default function FormTodo() {
       );
       dispatch(inputActions.resetInput());
     }
+  };
+
+  const reset = () => {
+    dispatch(inputActions.resetInput());
   };
 
   const updateItem = () => {
@@ -155,6 +158,9 @@ export default function FormTodo() {
           </Button>
           <Button onClick={deleteItem} type="button">
             Delete
+          </Button>
+          <Button onClick={reset} type="button">
+            Cancel
           </Button>
         </>
       )}
