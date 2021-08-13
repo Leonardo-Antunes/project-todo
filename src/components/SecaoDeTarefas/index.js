@@ -33,8 +33,8 @@ const SecaoDeTarefas = () => {
                 title={item.title}
                 description={item.description}
                 isChecked={item.isChecked}
-                //tag={item.tag.tagName ? item.tag.tagName : "sem tag"}
-                //tagColor={item.tag.tagColor ? item.tag.tagColor : "fff"}
+                tagName={item.tag.tagName}
+                tagColor={item.tag.tagColor}
                 onItemClicked={() => {
                   onItemClicked(item, index)
                 }}
@@ -54,8 +54,8 @@ const SecaoDeTarefas = () => {
                 title={item.title}
                 description={item.description}
                 isChecked={item.isChecked}
-                //tag={item.tag.tagName}
-                //tagColor={item.tag.tagColor}
+                tag={item.tag.tagName}
+                tagColor={item.tag.tagColor}
                 onItemClicked={() => {
                   onItemClicked(item, index)
                 }}

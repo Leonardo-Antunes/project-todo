@@ -6,7 +6,7 @@ export const initialState = {
   title: "",
   description: "",
   tag: "",
-  isChecked: false,
+  isChecked: "",
 };
 
 const todoSlice = (state = initialState, action) => {
