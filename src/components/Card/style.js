@@ -3,8 +3,8 @@ import { Card, Chip, Typography } from '@material-ui/core'
 import { CheckCircle, CheckCircleOutline } from "@material-ui/icons";
 
 export const CardTodo = styled(Card)`
-  max-width: 15vw;
-  background-color: #f8f9fa;
+  width: 20vw;
+  background-color: #fff;
   padding: 0.5rem 0.8rem;
   margin: 0.8rem;
 `
@@ -33,13 +33,8 @@ export const Concluido = styled(CheckCircle)`
   color: #90be6d;
   font-size: 1.8rem;
 `
+
 export const NaoConcluido = styled(CheckCircleOutline)`
   color: #f25c54;
   font-size: 1.8rem;
 `
-
-export const CardTag = styled.span`
-  background-color: ${props => props.tagColor};
-  border-radius: 10px;
-  width: 40%;
-`;
