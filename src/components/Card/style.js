@@ -14,7 +14,7 @@ export const CardTitle = styled(Typography)`
 
 export const CardDescription = styled(Typography)`
   line-height: 1.5rem;
-  margin: 1rem 0;
+  margin: 1.5rem 0 !important;
   text-align: justify;
 `;
 
