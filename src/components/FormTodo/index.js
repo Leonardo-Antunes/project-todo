@@ -1,8 +1,8 @@
 import { React } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { TextField, Button, Checkbox, FormControlLabel } from "@material-ui/core";
+import { TextField, Checkbox, FormControlLabel, withStyles, green } from "@material-ui/core";
 
-import { Form, FormBox, InputBox, InputText, SelectTag } from "./styled";
+import { ButtonForm, Form, FormBox, InputBox, InputText, SelectTag } from "./styled";
 import inputActions from "../../redux/actions/inputActions";
 import todoActions from "../../redux/actions/todoActions";
 
@@ -125,6 +125,7 @@ export default function FormTodo() {
           id="tag"
           size='small'
           autoComplete
+          disableClearable
           clearOnBlur={true}
           handleHomeEndKeys
           inputValue={labelInput}
@@ -147,12 +148,13 @@ export default function FormTodo() {
       </FormBox>
       <FormBox>
         {id === -1 ? (
-          <Button type="submit">Adicionar</Button>
+          <ButtonForm bgcolor="#679436" type="submit">Adicionar</ButtonForm>
         ) : (
           <>
             <FormControlLabel
               control={
                 <Checkbox
+                  color="primary"
                   type="checkbox"
                   value={isChecked}
                   checked={isChecked}
@@ -161,15 +163,15 @@ export default function FormTodo() {
               }
               label="Completed"
             />
-            <Button onClick={updateItem} type="button">
+            <ButtonForm bgcolor="#05668d" onClick={updateItem} type="button">
               Update
-            </Button>
-            <Button onClick={deleteItem} type="button">
+            </ButtonForm>
+            <ButtonForm bgcolor="#e5383b" onClick={deleteItem} type="button">
               Delete
-            </Button>
-            <Button onClick={reset} type="button">
+            </ButtonForm>
+            <ButtonForm bgcolor="#faa307" onClick={reset} type="button">
               Cancel
-            </Button>
+            </ButtonForm>
           </>
         )}
       </FormBox>

@@ -4,7 +4,7 @@ import { CheckCircle } from "@material-ui/icons";
 
 export const CardTodo = styled(Card)`
   width: 20vw;
-  background-color: #fff;
+  background-color: #f1faee;
   padding: 0.5rem 0.8rem;
   margin: 0.8rem;
 `
@@ -25,8 +25,9 @@ export const TagBox = styled.div `
 `
 
 export const Tag = styled(Chip)`
-  color: #fff;
-  background-color: ${props => props.bgcolor};
+  color: #f1faee !important;
+  font-weight: 600;
+  background-color: ${props => props.bgcolor} !important;
 `
 
 export const Concluido = styled(CheckCircle)`

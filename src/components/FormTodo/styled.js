@@ -17,6 +17,7 @@ export const FormBox = styled(Box)`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  margin: 1rem 0;
 `
 
 export const InputBox = styled.div`
@@ -32,6 +33,11 @@ export const SelectTag = styled(Autocomplete)`
   min-width: 150px;
 `
 
-export const ButtonForm = styled(Button) `
+export const ButtonForm = styled(Button)`
+  color: #f1faee !important;
+  background-color: ${props => props.bgcolor} !important;
   
+  :hover {
+    opacity: 0.8 !important;
+  }
 `
