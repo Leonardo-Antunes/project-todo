@@ -15,6 +15,7 @@ export default function FormTodo() {
   const description = useSelector((state) => state.inputs.description);
   const tag = useSelector((state) => state.inputs.tag);
   const tagName = useSelector((state) => state.inputs.tag.tagName);
+  console.log(tagName)
 
   let labelInput = "";
   if (tagName === undefined) {
@@ -124,6 +125,7 @@ export default function FormTodo() {
         id="tag"
         autoComplete
         clearOnBlur={true}
+        disableClearable
         handleHomeEndKeys
         inputValue={labelInput}
         selectOnFocus
