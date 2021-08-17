@@ -10,6 +10,7 @@ import {
   InputBox,
   InputText,
   SelectTag,
+  Title,
 } from "./styled";
 import inputActions from "../../redux/actions/inputActions";
 import todoActions from "../../redux/actions/todoActions";
@@ -105,6 +106,7 @@ export default function FormTodo() {
 
   return (
     <Form onSubmit={addItem}>
+      <Title variant="h4"> To-do </Title>
       <FormBox>
         <InputBox>
           <InputText
