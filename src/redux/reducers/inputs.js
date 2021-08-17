@@ -33,7 +33,6 @@ const todoSlice = (state = initialState, action) => {
       };
     }
     case actionTypes.SET_TODO_TAG: {
-      console.log("Chamou", action)
       const { tag } = action;
       return {
         ...state,

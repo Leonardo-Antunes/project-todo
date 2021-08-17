@@ -5,9 +5,12 @@ import { Autocomplete } from "@material-ui/lab";
 
 import inputActions from "../../redux/actions/inputActions";
 import todoActions from "../../redux/actions/todoActions";
+import { useState } from "react";
 
 export default function FormTodo() {
   const dispatch = useDispatch();
+
+  const [resetTag, setResetTag] = useState("");
 
   const index = useSelector((state) => state.todos.index);
   const id = useSelector((state) => state.inputs.id);
@@ -15,18 +18,15 @@ export default function FormTodo() {
   const description = useSelector((state) => state.inputs.description);
   const tag = useSelector((state) => state.inputs.tag);
   const tagName = useSelector((state) => state.inputs.tag.tagName);
-  console.log(tagName)
 
   let labelInput = "";
   if (tagName === undefined) {
     labelInput = "";
   } else {
-    labelInput = tagName;
+    labelInput = tag.tagName;
   }
 
   const isChecked = useSelector((state) => state.inputs.isChecked);
-
-  const itens = useSelector((state) => state.todos.todos);
 
   const tags = [
     {
@@ -123,19 +123,15 @@ export default function FormTodo() {
       />
       <Autocomplete
         id="tag"
-        autoComplete
-        clearOnBlur={true}
-        disableClearable
-        handleHomeEndKeys
-        inputValue={labelInput}
-        selectOnFocus
         options={tags}
         getOptionLabel={(option) => option.tagName}
+        disableClearable
+        inputValue={labelInput}
         getOptionSelected={(option, value) => option.tagName === value.tagName}
         renderInput={(params) => (
           <TextField
             {...params}
-            label="Tag"
+            label="Tag para a tarefa"
             variant="outlined"
             margin="normal"
           />
