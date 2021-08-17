@@ -1,6 +1,12 @@
-import React from "react";
+import { ReactChild, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Title, Wrapper, BoxTarefas, LottieWrapper, LottieTitle} from "./style";
+import {
+  Title,
+  Wrapper,
+  BoxTarefas,
+  LottieWrapper,
+  LottieTitle,
+} from "./style";
 import { Card } from "..";
 import inputActions from "../../redux/actions/inputActions";
 import todoActions from "../../redux/actions/todoActions";
@@ -35,10 +41,17 @@ const SecaoDeTarefas = () => {
     );
   }
 
+  let counterTasks = 0;
+
+  for (const obj of itens) {
+    if (obj.isChecked === true) counterTasks++;
+  }
+
   return (
     <Wrapper>
+      <h1> </h1>
       <BoxTarefas>
-        <Title variant="h5">Todas as tarefas</Title>
+        <Title variant="h5">Todas as tarefas: {itens.length}</Title>
         {itens.map((item, index) => {
           if (item) {
             return (
@@ -59,7 +72,9 @@ const SecaoDeTarefas = () => {
         })}
       </BoxTarefas>
       <BoxTarefas>
-        <Title variant="h5">Não concluídas</Title>
+        <Title variant="h5">
+          Não concluídas: {itens.length - counterTasks}{" "}
+        </Title>
         {itens.map((item, index) => {
           if (item && !item.isChecked) {
             return (
@@ -80,7 +95,7 @@ const SecaoDeTarefas = () => {
         })}
       </BoxTarefas>
       <BoxTarefas>
-        <Title variant="h5">Concluídas</Title>
+        <Title variant="h5">Concluídas: {counterTasks}</Title>
         {itens.map((item, index) => {
           if (item && item.isChecked) {
             return (
