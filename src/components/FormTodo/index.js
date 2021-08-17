@@ -2,7 +2,14 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { TextField, Checkbox, FormControlLabel } from "@material-ui/core";
 
-import { ButtonForm, Form, FormBox, InputBox, InputText, SelectTag } from "./styled";
+import {
+  ButtonForm,
+  Form,
+  FormBox,
+  InputBox,
+  InputText,
+  SelectTag,
+} from "./styled";
 import inputActions from "../../redux/actions/inputActions";
 import todoActions from "../../redux/actions/todoActions";
 import { useState } from "react";
@@ -27,9 +34,6 @@ export default function FormTodo() {
     labelInput = tag.tagName;
   }
 
-
-  const isChecked = useSelector((state) => state.inputs.isChecked);
-
   const tags = [
     {
       tagName: "todo",
@@ -44,7 +48,6 @@ export default function FormTodo() {
       tagColor: "#fb8500",
     },
   ];
-
 
   const handleIsChecked = () => {
     dispatch(inputActions.setIsChecked(!isChecked));
@@ -61,8 +64,6 @@ export default function FormTodo() {
   const handleTagChange = (e, value) => {
     dispatch(inputActions.setTag(value));
   };
-
-
 
   const addItem = (e) => {
     e.preventDefault();
@@ -115,7 +116,7 @@ export default function FormTodo() {
             value={title}
             onChange={handleTitleChange}
             variant="outlined"
-            size='small'
+            size="small"
           />
           <InputText
             id="description"
@@ -125,9 +126,8 @@ export default function FormTodo() {
             value={description}
             onChange={handleDescriptionChange}
             variant="outlined"
-            size='small'
+            size="small"
           />
-
         </InputBox>
         <SelectTag
           id="tag"
@@ -139,7 +139,9 @@ export default function FormTodo() {
           selectOnFocus
           options={tags}
           getOptionLabel={(option) => option.tagName}
-          getOptionSelected={(option, value) => option.tagName === value.tagName}
+          getOptionSelected={(option, value) =>
+            option.tagName === value.tagName
+          }
           renderInput={(params) => (
             <TextField
               {...params}
@@ -151,11 +153,12 @@ export default function FormTodo() {
           size="small"
           onChange={handleTagChange}
         />
-
       </FormBox>
       <FormBox>
         {id === -1 ? (
-          <ButtonForm bgcolor="#679436" type="submit">Adicionar</ButtonForm>
+          <ButtonForm bgcolor="#679436" type="submit">
+            Adicionar
+          </ButtonForm>
         ) : (
           <>
             <FormControlLabel
