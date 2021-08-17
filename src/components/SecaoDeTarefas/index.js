@@ -1,14 +1,21 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Title, Wrapper, BoxTarefas } from "./style";
+import { Title, Wrapper, BoxTarefas, LottieWrapper, LottieTitle} from "./style";
 import { Card } from "..";
 import inputActions from "../../redux/actions/inputActions";
 import todoActions from "../../redux/actions/todoActions";
+import Lottie from "react-lottie";
+import animationData from "../../images/72519-banner-happy-emoji.json";
 
 const SecaoDeTarefas = () => {
   const dispatch = useDispatch();
   const itens = useSelector((state) => state.todos.todos);
-  
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+  };
 
   const onItemClicked = (item, index) => {
     dispatch(todoActions.setIndex(index));
@@ -20,7 +27,12 @@ const SecaoDeTarefas = () => {
   };
 
   if (itens.length === 0) {
-    return <p>Nao ha todos</p>;
+    return (
+      <LottieWrapper>
+        <LottieTitle> Não há nada para fazer aqui! </LottieTitle>
+        <Lottie options={defaultOptions} height={400} width={400} />
+      </LottieWrapper>
+    );
   }
 
   return (
