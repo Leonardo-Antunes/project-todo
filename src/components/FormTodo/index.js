@@ -5,9 +5,12 @@ import { TextField, Checkbox, FormControlLabel } from "@material-ui/core";
 import { ButtonForm, Form, FormBox, InputBox, InputText, SelectTag } from "./styled";
 import inputActions from "../../redux/actions/inputActions";
 import todoActions from "../../redux/actions/todoActions";
+import { useState } from "react";
 
 export default function FormTodo() {
   const dispatch = useDispatch();
+
+  const [resetTag, setResetTag] = useState("");
 
   const index = useSelector((state) => state.todos.index);
   const id = useSelector((state) => state.inputs.id);
@@ -21,8 +24,11 @@ export default function FormTodo() {
   if (tagName === undefined) {
     labelInput = "";
   } else {
-    labelInput = tagName;
+    labelInput = tag.tagName;
   }
+
+
+  const isChecked = useSelector((state) => state.inputs.isChecked);
 
   const tags = [
     {
@@ -110,7 +116,6 @@ export default function FormTodo() {
             onChange={handleTitleChange}
             variant="outlined"
             size='small'
-
           />
           <InputText
             id="description"
