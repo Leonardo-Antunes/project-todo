@@ -3,7 +3,6 @@ import { Autocomplete } from "@material-ui/lab";
 import styled from "styled-components";
 
 export const Form = styled.form`
-  width: 70vw;
   max-width: 1000px;
   background-color: #f8f9fa;
   display: flex;

@@ -6,6 +6,7 @@ test("should return the initial state", () => {
       id: -1,
       title: "",
       description: "",
+      tag: "",
       isChecked: false,
     },
     todos: {

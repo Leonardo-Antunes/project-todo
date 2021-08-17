@@ -1,8 +1,6 @@
 import React from "react";
 import Card from "../index";
 import renderer from "react-test-renderer";
-import { mount, shallow } from "enzyme";
-import { Wrapper } from "../style";
 
 describe("Card", () => {
   it("renders correctly", () => {

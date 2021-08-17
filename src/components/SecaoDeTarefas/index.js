@@ -1,4 +1,4 @@
-import { ReactChild, useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   Title,
@@ -35,7 +35,7 @@ const SecaoDeTarefas = () => {
   if (itens.length === 0) {
     return (
       <LottieWrapper>
-        <LottieTitle> Não há nada para fazer aqui! </LottieTitle>
+        <LottieTitle> Não há nada para ver aqui! </LottieTitle>
         <Lottie options={defaultOptions} height={400} width={400} />
       </LottieWrapper>
     );
@@ -49,7 +49,6 @@ const SecaoDeTarefas = () => {
 
   return (
     <Wrapper>
-      <h1> </h1>
       <BoxTarefas>
         <Title variant="h5">Todas as tarefas: {itens.length}</Title>
         {itens.map((item, index) => {

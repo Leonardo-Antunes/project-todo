@@ -9,25 +9,24 @@ export const CardTodo = styled(Card)`
   margin: 0.8rem;
 `
 
-export const CardTitle = styled(Typography)`
-`;
+export const CardTitle = styled(Typography)``;
 
 export const CardDescription = styled(Typography)`
   line-height: 1.5rem;
-  margin: 1.5rem 0 !important;
+  margin: 1.5rem 0;
   text-align: justify;
 `;
 
-export const TagBox = styled.div `
+export const TagBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
 `
 
 export const Tag = styled(Chip)`
-  color: #f1faee !important;
+  color: #f1faee;
   font-weight: 600;
-  background-color: ${props => props.bgcolor} !important;
+  background-color: ${props => props.bgcolor};
 `
 
 export const Concluido = styled(CheckCircle)`

@@ -4,7 +4,6 @@ import configureStore from 'redux-mock-store'
 import { shallow } from 'enzyme';
 import FormTodo from '../index';
 
-
 const middlewares = [];
 const mockStore = configureStore(middlewares)
 const state = {
@@ -12,6 +11,7 @@ const state = {
     id: -1,
     title: "",
     description: "",
+    tag: "",
     isChecked: false,
   }
 }
@@ -23,7 +23,6 @@ const setup = () => shallow(
     <FormTodo />
   </Provider>
 )
-
 
 describe('testing FormTodo Component', () => {
 
@@ -46,14 +45,4 @@ describe('testing FormTodo Component', () => {
     const TextFieldDescription = wrapper.find({ id: 'description' });
     expect(TextFieldDescription).toBeTruthy()
   })
-/* 
-  test('should call addItem method when click on the submit button', () => {
-    const wrapper = setup();
-
-    const spy = jest.spyOn(wrapper.instance, "addItem");
-    wrapper.find("Button").simulate("click");
-    expect(spy).toHaveBeenCalled();
-
-  }) */
-
 })
