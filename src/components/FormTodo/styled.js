@@ -17,6 +17,13 @@ export const FormBox = styled(Box)`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  margin: 0 auto;
+`
+
+export const FormBoxBotao = styled(Box)`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   margin: 1rem 0;
 `
 
@@ -24,10 +31,11 @@ export const InputBox = styled.div`
   margin: 16px 0 8px 0;
   display: flex;
   justify-content: space-between;
-  width: 50%;
 `
 
-export const InputText = styled(TextField)``
+export const InputText = styled(TextField)`
+  margin-right: 10px;
+`
 
 export const SelectTag = styled(Autocomplete)`
   min-width: 150px;

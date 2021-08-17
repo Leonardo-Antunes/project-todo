@@ -6,6 +6,7 @@ import {
   ButtonForm,
   Form,
   FormBox,
+  FormBoxBotao,
   InputBox,
   InputText,
   SelectTag,
@@ -151,7 +152,7 @@ export default function FormTodo() {
           onChange={handleTagChange}
         />
       </FormBox>
-      <FormBox>
+      <FormBoxBotao>
         {id === -1 ? (
           <ButtonForm bgcolor="#679436" type="submit">
             Adicionar
@@ -181,7 +182,7 @@ export default function FormTodo() {
             </ButtonForm>
           </>
         )}
-      </FormBox>
+      </FormBoxBotao>
     </Form>
   );
 }
