@@ -1,6 +1,6 @@
-import { React } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { TextField, Checkbox, FormControlLabel, withStyles, green } from "@material-ui/core";
+import { TextField, Checkbox, FormControlLabel } from "@material-ui/core";
 
 import { ButtonForm, Form, FormBox, InputBox, InputText, SelectTag } from "./styled";
 import inputActions from "../../redux/actions/inputActions";
@@ -39,6 +39,7 @@ export default function FormTodo() {
     },
   ];
 
+
   const handleIsChecked = () => {
     dispatch(inputActions.setIsChecked(!isChecked));
   };
@@ -54,6 +55,8 @@ export default function FormTodo() {
   const handleTagChange = (e, value) => {
     dispatch(inputActions.setTag(value));
   };
+
+
 
   const addItem = (e) => {
     e.preventDefault();
@@ -123,10 +126,9 @@ export default function FormTodo() {
         </InputBox>
         <SelectTag
           id="tag"
-          size='small'
           autoComplete
-          disableClearable
           clearOnBlur={true}
+          disableClearable
           handleHomeEndKeys
           inputValue={labelInput}
           selectOnFocus
@@ -141,7 +143,7 @@ export default function FormTodo() {
               margin="normal"
             />
           )}
-
+          size="small"
           onChange={handleTagChange}
         />
 

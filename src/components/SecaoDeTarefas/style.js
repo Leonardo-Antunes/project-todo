@@ -4,6 +4,7 @@ import { Box, Typography } from "@material-ui/core";
 export const Wrapper = styled(Box)`
   display: flex;
   justify-content: space-evenly;
+  min-width: 100%;
 `
 
 export const BoxTarefas = styled(Box) `

@@ -4,7 +4,7 @@ import { CheckCircle } from "@material-ui/icons";
 
 export const CardTodo = styled(Card)`
   width: 20vw;
-  background-color: #f1faee;
+  background-color: #fff;
   padding: 0.5rem 0.8rem;
   margin: 0.8rem;
 `
