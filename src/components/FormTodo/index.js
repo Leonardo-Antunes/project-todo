@@ -12,12 +12,9 @@ import {
 } from "./styled";
 import inputActions from "../../redux/actions/inputActions";
 import todoActions from "../../redux/actions/todoActions";
-import { useState } from "react";
 
 export default function FormTodo() {
   const dispatch = useDispatch();
-
-  const [resetTag, setResetTag] = useState("");
 
   const index = useSelector((state) => state.todos.index);
   const id = useSelector((state) => state.inputs.id);
