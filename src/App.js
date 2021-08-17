@@ -1,10 +1,14 @@
+import React from "react";
+import { ThemeProvider, CssBaseline } from "@material-ui/core";
+import { SecaoDeTarefas, FormTodo } from "./components";
+import { BgTheme } from "./GlobalTheme";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-     todo
-    </div>
+    <ThemeProvider theme={BgTheme}>
+      <CssBaseline />
+      <FormTodo />
+      <SecaoDeTarefas />
+    </ThemeProvider>
   );
 }
-
-export default App;
