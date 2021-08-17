@@ -6,6 +6,7 @@ import { store, persistor } from './redux/store'
 
 import App from './App';
 
+
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate persistor={persistor}>

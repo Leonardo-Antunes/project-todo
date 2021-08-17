@@ -1,8 +1,8 @@
-import { React } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { TextField, Button } from "@material-ui/core";
-import { Autocomplete } from "@material-ui/lab";
+import { TextField, Checkbox, FormControlLabel } from "@material-ui/core";
 
+import { ButtonForm, Form, FormBox, InputBox, InputText, SelectTag } from "./styled";
 import inputActions from "../../redux/actions/inputActions";
 import todoActions from "../../redux/actions/todoActions";
 import { useState } from "react";
@@ -18,6 +18,7 @@ export default function FormTodo() {
   const description = useSelector((state) => state.inputs.description);
   const tag = useSelector((state) => state.inputs.tag);
   const tagName = useSelector((state) => state.inputs.tag.tagName);
+  const isChecked = useSelector((state) => state.inputs.isChecked);
 
   let labelInput = "";
   if (tagName === undefined) {
@@ -25,6 +26,7 @@ export default function FormTodo() {
   } else {
     labelInput = tag.tagName;
   }
+
 
   const isChecked = useSelector((state) => state.inputs.isChecked);
 
@@ -43,6 +45,7 @@ export default function FormTodo() {
     },
   ];
 
+
   const handleIsChecked = () => {
     dispatch(inputActions.setIsChecked(!isChecked));
   };
@@ -58,6 +61,8 @@ export default function FormTodo() {
   const handleTagChange = (e, value) => {
     dispatch(inputActions.setTag(value));
   };
+
+
 
   const addItem = (e) => {
     e.preventDefault();
@@ -100,68 +105,83 @@ export default function FormTodo() {
   };
 
   return (
-    <form onSubmit={addItem}>
-      <TextField
-        id="title"
-        label="Title"
-        multiline
-        maxRows={4}
-        value={title}
-        onChange={handleTitleChange}
-        variant="outlined"
-        size="small"
-      />
-      <TextField
-        id="description"
-        label="Description"
-        placeholder="Describe your todo here"
-        multiline
-        value={description}
-        onChange={handleDescriptionChange}
-        variant="outlined"
-        size="small"
-      />
-      <Autocomplete
-        id="tag"
-        options={tags}
-        getOptionLabel={(option) => option.tagName}
-        disableClearable
-        inputValue={labelInput}
-        getOptionSelected={(option, value) => option.tagName === value.tagName}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            label="Tag para a tarefa"
+    <Form onSubmit={addItem}>
+      <FormBox>
+        <InputBox>
+          <InputText
+            id="title"
+            label="Title"
+            multiline
+            value={title}
+            onChange={handleTitleChange}
             variant="outlined"
-            margin="normal"
+            size='small'
           />
-        )}
-        size="small"
-        onChange={handleTagChange}
-      />
+          <InputText
+            id="description"
+            label="Description"
+            placeholder="Describe your todo here"
+            multiline
+            value={description}
+            onChange={handleDescriptionChange}
+            variant="outlined"
+            size='small'
+          />
 
-      {id === -1 ? (
-        <Button type="submit">Adicionar</Button>
-      ) : (
-        <>
-          <input
-            className="toggle"
-            type="checkbox"
-            value={isChecked}
-            checked={isChecked}
-            onChange={handleIsChecked}
-          />
-          <Button onClick={updateItem} type="button">
-            Update
-          </Button>
-          <Button onClick={deleteItem} type="button">
-            Delete
-          </Button>
-          <Button onClick={reset} type="button">
-            Cancel
-          </Button>
-        </>
-      )}
-    </form>
+        </InputBox>
+        <SelectTag
+          id="tag"
+          autoComplete
+          clearOnBlur={true}
+          disableClearable
+          handleHomeEndKeys
+          inputValue={labelInput}
+          selectOnFocus
+          options={tags}
+          getOptionLabel={(option) => option.tagName}
+          getOptionSelected={(option, value) => option.tagName === value.tagName}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              label="Tag"
+              variant="outlined"
+              margin="normal"
+            />
+          )}
+          size="small"
+          onChange={handleTagChange}
+        />
+
+      </FormBox>
+      <FormBox>
+        {id === -1 ? (
+          <ButtonForm bgcolor="#679436" type="submit">Adicionar</ButtonForm>
+        ) : (
+          <>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  color="primary"
+                  type="checkbox"
+                  value={isChecked}
+                  checked={isChecked}
+                  onChange={handleIsChecked}
+                />
+              }
+              label="Completed"
+            />
+            <ButtonForm bgcolor="#05668d" onClick={updateItem} type="button">
+              Update
+            </ButtonForm>
+            <ButtonForm bgcolor="#e5383b" onClick={deleteItem} type="button">
+              Delete
+            </ButtonForm>
+            <ButtonForm bgcolor="#faa307" onClick={reset} type="button">
+              Cancel
+            </ButtonForm>
+          </>
+        )}
+      </FormBox>
+    </Form>
   );
 }

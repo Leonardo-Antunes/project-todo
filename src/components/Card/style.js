@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Card, Chip, Typography } from '@material-ui/core'
-import { CheckCircle, CheckCircleOutline } from "@material-ui/icons";
+import { CheckCircle } from "@material-ui/icons";
 
 export const CardTodo = styled(Card)`
   width: 20vw;
@@ -14,7 +14,7 @@ export const CardTitle = styled(Typography)`
 
 export const CardDescription = styled(Typography)`
   line-height: 1.5rem;
-  margin: 1rem 0;
+  margin: 1.5rem 0 !important;
   text-align: justify;
 `;
 
@@ -25,8 +25,9 @@ export const TagBox = styled.div `
 `
 
 export const Tag = styled(Chip)`
-  color: #fff;
-  background-color: ${props => props.bgcolor};
+  color: #f1faee !important;
+  font-weight: 600;
+  background-color: ${props => props.bgcolor} !important;
 `
 
 export const Concluido = styled(CheckCircle)`
@@ -34,7 +35,7 @@ export const Concluido = styled(CheckCircle)`
   font-size: 1.8rem;
 `
 
-export const NaoConcluido = styled(CheckCircleOutline)`
+export const NaoConcluido = styled(CheckCircle)`
   color: #f25c54;
   font-size: 1.8rem;
 `
