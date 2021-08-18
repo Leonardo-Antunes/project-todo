@@ -1,9 +1,12 @@
 import { Box, Button, TextField, Typography } from "@material-ui/core";
+import { grey } from "@material-ui/core/colors";
 import { Autocomplete } from "@material-ui/lab";
 import styled from "styled-components";
 
+const textColor = grey[300]
+
 export const Form = styled.form`
-  max-width: 1000px;
+  max-width: 85vw;
   background-color: #f8f9fa;
   display: flex;
   flex-direction: column;
@@ -11,13 +14,21 @@ export const Form = styled.form`
   padding: 1rem;
   margin: 2rem auto;
   border-radius: 8px;
+
+  @media(max-width: 1024px){
+    width: 80vw;
+  }
 `;
 
 export const FormBox = styled(Box)`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin: 0 auto;
+  width: 100%;
+
+  @media(max-width: 960px){
+    flex-wrap: wrap;
+  }
 `;
 
 export const Title = styled(Typography)`
@@ -31,27 +42,36 @@ export const FormBoxBotao = styled(Box)`
   align-items: center;
   justify-content: space-evenly;
   margin: 1rem 0;
-`;
 
-export const InputBox = styled.div`
-  margin: 16px 0 8px 0;
-  display: flex;
-  justify-content: space-between;
+  @media(max-width: 600px){
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
 `;
 
 export const InputText = styled(TextField)`
-  margin-right: 10px;
+  min-width: 210px;
+
+  @media(max-width: 960px){
+    margin: 1rem 0
+  }
 `;
 
 export const SelectTag = styled(Autocomplete)`
-  min-width: 150px;
+  margin-bottom: 8px;
+  min-width: 210px;
 `;
 
 export const ButtonForm = styled(Button)`
-  color: #f1faee !important;
-  background-color: ${(props) => props.bgcolor} !important;
+  background-color: ${(props) => props.bgcolor};
+  color: ${textColor};
 
-  :hover {
-    opacity: 0.8 !important;
+  &:hover {
+    background-color: ${(props) => props.bgcolor};
+    opacity: 0.85;
+  }
+
+  @media(max-width: 600px){
+    margin: 1rem;
   }
 `;
