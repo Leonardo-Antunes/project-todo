@@ -111,8 +111,9 @@ export default function FormTodo() {
         <InputBox>
           <InputText
             id="title"
-            label="Title"
+            label="Titulo"
             multiline
+            required
             value={title}
             onChange={handleTitleChange}
             variant="outlined"
@@ -120,7 +121,8 @@ export default function FormTodo() {
           />
           <InputText
             id="description"
-            label="Description"
+            label="Descrição"
+            required
             placeholder="Describe your todo here"
             multiline
             value={description}
@@ -171,16 +173,16 @@ export default function FormTodo() {
                   onChange={handleIsChecked}
                 />
               }
-              label="Completed"
+              label="Concluir tarefa"
             />
             <ButtonForm bgcolor="#05668d" onClick={updateItem} type="button">
-              Update
+              Atualizar
             </ButtonForm>
             <ButtonForm bgcolor="#e5383b" onClick={deleteItem} type="button">
-              Delete
+              Deletar
             </ButtonForm>
             <ButtonForm bgcolor="#faa307" onClick={reset} type="button">
-              Cancel
+              Cancelar
             </ButtonForm>
           </>
         )}

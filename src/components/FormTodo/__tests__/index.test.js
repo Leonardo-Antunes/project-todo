@@ -26,12 +26,12 @@ const setup = () => shallow(
 
 describe('testing FormTodo Component', () => {
 
-  test('renders non-empty component without crashing', () => {
+  test('Renderiza componente não vazio sem crashar', () => {
     const wrapper = setup();
     expect(wrapper.length).toBe(1)
   })
 
-  test('should be render a title input', () => {
+  test('deve renderizar um input para o title', () => {
     const wrapper = setup();
 
     const TextFieldTitle = wrapper.find({ id: 'title' });
@@ -39,7 +39,7 @@ describe('testing FormTodo Component', () => {
 
   })
 
-  test('should be render a description input', () => {
+  test('deve renderizar um input para o description', () => {
     const wrapper = setup();
 
     const TextFieldDescription = wrapper.find({ id: 'description' });
