@@ -108,7 +108,7 @@ export default function FormTodo() {
       <FormBox>
         <InputText
           id="title"
-          label="Title"
+          label="Título"
           multiline
           value={title}
           onChange={handleTitleChange}
@@ -118,10 +118,7 @@ export default function FormTodo() {
         />
         <InputText
           id="description"
-          label="Description"
-          placeholder="Describe your todo here"
-          multiline
-          minRows="1"
+          label="Descrição"
           value={description}
           onChange={handleDescriptionChange}
           variant="outlined"

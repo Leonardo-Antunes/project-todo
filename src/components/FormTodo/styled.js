@@ -50,7 +50,7 @@ export const FormBoxBotao = styled(Box)`
 `;
 
 export const InputText = styled(TextField)`
-  width: 210px;
+  min-width: 210px;
 
   @media(max-width: 960px){
     margin: 1rem 0
