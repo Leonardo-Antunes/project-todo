@@ -114,6 +114,7 @@ export default function FormTodo() {
           onChange={handleTitleChange}
           variant="outlined"
           size="small"
+          required
         />
         <InputText
           id="description"
@@ -125,10 +126,12 @@ export default function FormTodo() {
           onChange={handleDescriptionChange}
           variant="outlined"
           size="small"
+          required
         />
         <SelectTag
           id="tag"
           autoComplete
+          required
           clearOnBlur={true}
           disableClearable
           handleHomeEndKeys
@@ -168,16 +171,16 @@ export default function FormTodo() {
                   onChange={handleIsChecked}
                 />
               }
-              label="Completed"
+              label="Concluir tarefa"
             />
             <ButtonForm bgcolor={theme.palette.primary.main} onClick={updateItem} type="button">
-              Update
+              Atualizar
             </ButtonForm>
             <ButtonForm bgcolor={theme.palette.error.main} onClick={deleteItem} type="button">
-              Delete
+              Deletar
             </ButtonForm>
             <ButtonForm bgcolor={theme.palette.warning.main} onClick={reset} type="button">
-              Cancel
+              Cancelar
             </ButtonForm>
           </>
         )}
