@@ -6,6 +6,11 @@ export const Wrapper = styled(Box)`
   justify-content: space-evenly;
   min-width: 100%;
   margin-bottom: 1.5rem;
+
+  @media(max-width: 960px){
+    align-items: center;
+    flex-direction: column;
+  }
 `;
 
 export const LottieWrapper = styled(Box)`
@@ -17,6 +22,11 @@ export const BoxTarefas = styled(Box)`
   width: 22vw;
   background-color: #f8f9fa;
   border-radius: 8px;
+
+  @media(max-width: 960px){
+    width: 70vw;
+    margin: 1rem 0 ;
+  }
 `;
 
 export const Title = styled(Typography)`
