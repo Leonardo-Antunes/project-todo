@@ -7,11 +7,11 @@ import {
   Form,
   FormBox,
   FormBoxBotao,
-  InputBox,
   InputText,
   SelectTag,
   Title,
 } from "./styled";
+import { theme } from "../../GlobalTheme";
 import inputActions from "../../redux/actions/inputActions";
 import todoActions from "../../redux/actions/todoActions";
 
@@ -27,9 +27,7 @@ export default function FormTodo() {
   const isChecked = useSelector((state) => state.inputs.isChecked);
 
   let labelInput = "";
-  if (tagName === undefined) {
-    labelInput = "";
-  } else {
+  if (tagName !== undefined) {
     labelInput = tag.tagName;
   }
 
@@ -108,27 +106,26 @@ export default function FormTodo() {
     <Form onSubmit={addItem}>
       <Title variant="h4"> To-do </Title>
       <FormBox>
-        <InputBox>
-          <InputText
-            id="title"
-            label="Title"
-            multiline
-            value={title}
-            onChange={handleTitleChange}
-            variant="outlined"
-            size="small"
-          />
-          <InputText
-            id="description"
-            label="Description"
-            placeholder="Describe your todo here"
-            multiline
-            value={description}
-            onChange={handleDescriptionChange}
-            variant="outlined"
-            size="small"
-          />
-        </InputBox>
+        <InputText
+          id="title"
+          label="Title"
+          multiline
+          value={title}
+          onChange={handleTitleChange}
+          variant="outlined"
+          size="small"
+        />
+        <InputText
+          id="description"
+          label="Description"
+          placeholder="Describe your todo here"
+          multiline
+          minRows="1"
+          value={description}
+          onChange={handleDescriptionChange}
+          variant="outlined"
+          size="small"
+        />
         <SelectTag
           id="tag"
           autoComplete
@@ -173,13 +170,13 @@ export default function FormTodo() {
               }
               label="Completed"
             />
-            <ButtonForm bgcolor="#05668d" onClick={updateItem} type="button">
+            <ButtonForm bgcolor={theme.palette.primary.main} onClick={updateItem} type="button">
               Update
             </ButtonForm>
-            <ButtonForm bgcolor="#e5383b" onClick={deleteItem} type="button">
+            <ButtonForm bgcolor={theme.palette.error.main} onClick={deleteItem} type="button">
               Delete
             </ButtonForm>
-            <ButtonForm bgcolor="#faa307" onClick={reset} type="button">
+            <ButtonForm bgcolor={theme.palette.warning.main} onClick={reset} type="button">
               Cancel
             </ButtonForm>
           </>
