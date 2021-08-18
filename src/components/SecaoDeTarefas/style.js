@@ -24,7 +24,7 @@ export const BoxTarefas = styled(Box)`
   border-radius: 8px;
 
   @media(max-width: 960px){
-    width: 70vw;
+    width: 80vw;
     margin: 1rem 0 ;
   }
 `;
