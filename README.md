@@ -21,7 +21,7 @@
 * React
 * Redux
 * Styled-Components
-* Locar Storage
+* Local Storage
 * Redux persist
 * Lottie
 * Material Ui
