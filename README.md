@@ -25,6 +25,7 @@
 * Redux persist
 * Lottie
 * Material Ui
+* Netlify
 
 
 <h3> Como instalar na sua máquina? </h3>
@@ -35,6 +36,10 @@
   `npm install` 
   * Por último inicie a aplicação com 
   `npm start`
+  
+<h3> Vá no site do nosso projeto! </h3>  
+
+* [Site projeto To-do](https://reactreduxtodoproj.netlify.app/)
   
 <h4> Considerações finais: </h4>
 
