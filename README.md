@@ -18,7 +18,7 @@
 <h3> Tecnologias e pacotes utilizados: </h3> 
 
 * Javascript
-* React
+* React Js
 * Redux
 * Styled-Components
 * Local Storage
