@@ -4,16 +4,16 @@
 
 - [x] Utilizar as ferramentas aprendidas no Bootcamp React Web da DIO
 
-- [x] Contruir a aplicação ao redor do redux que foi o conteúdo mais difícil a ser assimilado
+- [x] Construir a aplicação ao redor do redux que foi o conteúdo mais difícil a ser assimilado
 
 - [x] Utilizar fluxo do github, com dailys revisão de código e divisão de branch por feature
 
-- [x] Contruir uma ferramente clássica de To-do que permitisse
+- [x] Contruir uma ferramenta clássica de To-do que permite
   * Criar tarefas
   * Deletar tarefas
   * Editar tarefas
   * Marcar tarefas como concluidas
-  * Adicionar tarefa com tags
+  * Adicionar tarefas com tag
 
 <h3> Tecnologias e pacotes utilizados: </h3> 
 
