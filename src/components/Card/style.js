@@ -7,6 +7,11 @@ export const CardTodo = styled(Card)`
   background-color: #fff;
   padding: 0.5rem 0.8rem;
   margin: 0.8rem;
+
+  @media(max-width: 960px){
+    width: 60vw;
+    margin: 1rem auto;
+  }
 `
 
 export const CardTitle = styled(Typography)``;
