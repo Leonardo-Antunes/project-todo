@@ -24,7 +24,7 @@ const setup = () => shallow(
   </Provider>
 )
 
-describe('testing FormTodo Component', () => {
+describe('Testando componente FormTodo', () => {
 
   test('Renderiza componente não vazio sem crashar', () => {
     const wrapper = setup();
