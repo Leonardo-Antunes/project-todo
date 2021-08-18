@@ -5,6 +5,7 @@ export const Wrapper = styled(Box)`
   display: flex;
   justify-content: space-evenly;
   min-width: 100%;
+  margin-bottom: 1.5rem;
 `;
 
 export const LottieWrapper = styled(Box)`
