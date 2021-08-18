@@ -113,6 +113,7 @@ export default function FormTodo() {
             id="title"
             label="Titulo"
             multiline
+            required
             value={title}
             onChange={handleTitleChange}
             variant="outlined"
@@ -121,6 +122,7 @@ export default function FormTodo() {
           <InputText
             id="description"
             label="Descrição"
+            required
             placeholder="Describe your todo here"
             multiline
             value={description}
