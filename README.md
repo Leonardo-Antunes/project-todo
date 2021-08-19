@@ -43,7 +43,7 @@
   
 <h4> Considerações finais: </h4>
 
-Como de praxe sempre existe coisas a corrigir e melhorar, por isso agradecemos qualquer crítica nesse sentido! Até a próxima :space_invader:
+Como de praxe sempre existem coisas a corrigir e melhorar, por isso agradecemos qualquer crítica nesse sentido! Até a próxima :space_invader:
 
 Autores: [Aline](https://github.com/alinemartinsgh) e [Leonardo](https://github.com/Leonardo-Antunes)
 
