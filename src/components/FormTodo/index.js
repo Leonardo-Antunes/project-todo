@@ -25,12 +25,6 @@ export default function FormTodo() {
   const tag = useSelector((state) => state.inputs.tag);
   const isChecked = useSelector((state) => state.inputs.isChecked);
 
-  let labelInput = "";
-  if (tag !== undefined) {
-    labelInput = tag;
-  }
-
-
   const tags = [
     {
       tagName: "todo",
@@ -133,7 +127,7 @@ export default function FormTodo() {
           clearOnBlur={true}
           disableClearable
           handleHomeEndKeys
-          value={labelInput ? labelInput : { tagName: '', tagColor: '#ffffff' }}
+          value={tag ? tag : { tagName: '', tagColor: '' }}
           onChange={handleTagChange}
           selectOnFocus={true}
           options={tags}
@@ -144,7 +138,7 @@ export default function FormTodo() {
           renderInput={(params) => (
             <TextField
               {...params}
-              label="Tag"
+              label="Tag *"
               variant="outlined"
               margin="normal"
             />
