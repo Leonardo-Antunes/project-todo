@@ -23,13 +23,13 @@ export default function FormTodo() {
   const title = useSelector((state) => state.inputs.title);
   const description = useSelector((state) => state.inputs.description);
   const tag = useSelector((state) => state.inputs.tag);
-  const tagName = useSelector((state) => state.inputs.tag.tagName);
   const isChecked = useSelector((state) => state.inputs.isChecked);
 
   let labelInput = "";
-  if (tagName !== undefined) {
-    labelInput = tag.tagName;
+  if (tag !== undefined) {
+    labelInput = tag;
   }
+
 
   const tags = [
     {
@@ -127,13 +127,15 @@ export default function FormTodo() {
         />
         <SelectTag
           id="tag"
-          autoComplete
+          size="small"
           required
+          freeSolo
           clearOnBlur={true}
           disableClearable
           handleHomeEndKeys
-          inputValue={labelInput}
-          selectOnFocus
+          value={labelInput ? labelInput : { tagName: '', tagColor: '#ffffff' }}
+          onChange={handleTagChange}
+          selectOnFocus={true}
           options={tags}
           getOptionLabel={(option) => option.tagName}
           getOptionSelected={(option, value) =>
@@ -147,8 +149,6 @@ export default function FormTodo() {
               margin="normal"
             />
           )}
-          size="small"
-          onChange={handleTagChange}
         />
       </FormBox>
       <FormBoxBotao>
